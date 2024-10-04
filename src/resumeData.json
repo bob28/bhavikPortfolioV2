@@ -1,0 +1,185 @@
+[
+  {
+    "category": "Experience",
+    "name": "Senior Full Stack Developer",
+    "company": "Forged Operations",
+    "location": "Toronto, ON",
+    "startDate": "April 2024",
+    "endDate": "Present",
+    "years": ["2024"],
+    "summary": "Led the project department and increased efficiency by standardizing frameworks and client interactions. Mentored junior developers, drove security discussions, and built an AI chatbot.",
+    "description": [
+      "Overhauled the project department at an energy software startup by introducing frameworks to standardize timelines, pricing, documentation, and customer communication processes, reducing project management overhead by 40%",
+      "Mentored 2 junior developers to enhance their analytical skills, fostering collaboration and lifting team productivity",
+      "Directed the creation of an AI chatbot with Azure, ensuring regulatory compliance and expediting problem resolution",
+      "Architected Nuxt modules with Nitro for plug-and-play feature integration, decreasing development time by 60",
+      "Built an OAuth2 module in Express with Microsoft and single sign-on integrations, establishing uniform authentication",
+      "Spearheaded 4 Agile SDLC projects, producing clear technical documentation and driving successful client interactions"
+    ]
+  },
+  {
+    "category": "Experience",
+    "name": "Full Stack Developer",
+    "company": "Forged Operations",
+    "location": "Toronto, ON",
+    "startDate": "May 2023",
+    "endDate": "April 2024",
+    "years": ["2023", "2024"],
+    "summary": "Developed and maintained multiple web applications used by 120,000+ users daily utilizing Vue, Node.js, Nuxt, and MongoDB.",
+    "description": [
+      "Engineered full-stack SaaS applications for 120,000+ users using TypeScript, ensuring reliability in large-scale systems",
+      "Designed 60+ RESTful API endpoints with Node and created object-oriented backend microservices with modular code",
+      "Fabricated 50+ Vue components and collaborated with UI/UX to build intuitive front-ends, elevating user experiences",
+      "Cut production bugs by 25% and strengthened app stability through Cypress unit tests and functional end-user testing",
+      "Investigated 20+ cutting-edge technologies, presented findings, and integrated them into the team’s technology stack",
+      "Coordinated code reviews and sign-offs while contributing to Agile sprints and CI/CD, achieving timely MVP delivery"
+    ]
+  },
+  {
+    "category": "Education",
+    "name": "IBM Data Analyst Specialization",
+    "company": "Coursera Certification",
+    "startDate": "February 2023",
+    "years": ["2023"],
+    "url": "https://www.coursera.org/account/accomplishments/specialization/certificate/53DTZQXTE9N7"
+  },
+  {
+    "category": "Education",
+    "name": "Google Data Analytics Specialization",
+    "company": "Coursera Certification",
+    "startDate": "January 2023",
+    "years": ["2023"],
+    "url": "https://www.coursera.org/account/accomplishments/specialization/certificate/L3X5HKKDFER5"
+  },
+  {
+    "category": "Education",
+    "name": "Master of I.T Security, Artificial Intelligence",
+    "company": "Ontario Tech University",
+    "startDate": "September 2021",
+    "endDate": "October 2022",
+    "years": ["2021", "2022"],
+    "description": ["Graduated with a 4.15 / 4.3 GPA"]
+  },
+  {
+    "category": "Experience",
+    "name": "I.T Administrator Intern",
+    "company": "Treefrog",
+    "location": "Newmarket, ON",
+    "startDate": "May 2022",
+    "endDate": "August 2022",
+    "years": ["2022"],
+    "summary": "Researched and mapped security vulnerabilities within company, launched a hosting app, and used Terraform to create GCP environments",
+    "description": [
+      "Produced Python scripts to examine and clean up client data, resulting in a 20% increase in Plesk server performance",
+      "Migrated existing on-premise infrastructure to GCP using Terraform, cutting costs by 30% and improving scalability"
+    ]
+  },
+  {
+    "category": "Experience",
+    "name": "Frontend Developer",
+    "company": "MobileXCo",
+    "location": "Remote",
+    "startDate": "July 2020",
+    "endDate": "August 2021",
+    "years": ["2020", "2021"],
+    "summary": "Created, styled, and tested numerous promotional websites for Canadian businesses such as Tim Hortons and Royale",
+    "description": [
+      "Constructed sweepstake websites with JavaScript and CSS, attracting 50,000+ users, bolstering brand engagement",
+      "Accelerated site loading times by 70% through code optimization and image compression, enhancing user retention",
+      "Streamlined collaboration through cross-functional Agile SDLC, meeting client deadlines and exceeding satisfaction"
+    ]
+  },
+  {
+    "category": "Education",
+    "name": "Bachelor of I.T (Hons)",
+    "company": "Ontario Tech University",
+    "startDate": "September 2018",
+    "endDate": "April 2021",
+    "years": ["2018", "2019", "2020", "2021"],
+    "description": [
+      "Graduated with a 3.71 / 4.3 GPA, specializing in Networking and I.T Security",
+      "President's Award (4x), Dean's Award (1x)"
+    ]
+  },
+  {
+    "category": "Volunteer",
+    "name": "Project Lead of Skill Series",
+    "company": "Enactus Ontario Tech ",
+    "location": "Oshawa, ON",
+    "startDate": "July 2020",
+    "endDate": "May 2021",
+    "years": ["2020", "2021"],
+    "summary": "Directed a team of 5 individuals to create interactive online workshops that inspired students to learn new skills",
+    "description": [
+      "Led a team of 5 to develop interactive workshops with 20+ guest speakers, managing all facets including finances and competition strategy",
+      "Boosted live attendance by 1400%+ through data-driven strategies",
+      "Coordinated team efforts, mentored recruits, secured a $3000 RBC grant, and increased brand visibility by 1000%"
+    ]
+  },
+  {
+    "category": "Experience",
+    "name": "Peer Tutor",
+    "company": "Ontario Tech University",
+    "location": "Oshawa, ON",
+    "startDate": "September 2019",
+    "endDate": "April 2020",
+    "years": ["2019, 2020"],
+    "summary": "Conducted 300+ tutoring sessions in math and programming, imparting problem-solving and study strategies",
+    "description": [
+      "Courses: Computer Science 1, Calculus 1, Database Systems, OOP Programming, Computer Security, Advanced Networking, and Web & Script Programming"
+    ]
+  },
+  {
+    "category": "Experience",
+    "name": "Blockchain Developer Intern",
+    "company": "Ontario Tech University",
+    "location": "Oshawa, ON",
+    "startDate": "May 2020",
+    "endDate": "July 2020",
+    "years": ["2020"],
+    "summary": "Researched. evaluated. and developed a blockchain network with smart contracts using Hyperledger Fabric",
+    "description": [
+      "Explored, devised, and crafted a Hyperledger network for patent storage with smart contracts in Go, earning approval"
+    ]
+  },
+  {
+    "category": "Volunteer",
+    "name": "Lead of Social Media and Marketing",
+    "company": "Enactus Ontario Tech",
+    "location": "Oshawa, ON",
+    "startDate": "September 2019",
+    "endDate": "May 2020",
+    "years": ["2019", "2020"],
+    "summary": "Operated the Enactus Ontario Tech social media accounts",
+    "description": [
+      "Managed Enactus Ontario Tech's marketing team across all platforms and improved engagement across projects by over 1000% ",
+      "Directed and edited the Enactus Regional and National competition videos outlining the work we accomplished as a team"
+    ]
+  },
+  {
+    "category": "Experience",
+    "name": "Software Engineer Intern",
+    "company": "Kloudville",
+    "location": "Mississauga, ON",
+    "startDate": "May 2018",
+    "endDate": "August 2018",
+    "years": ["2018"],
+    "summary": "Designed and developed a fully-fledged Android and iOS application for the Kloudville software using Apache Cordova",
+    "description": [
+      "Blueprinted and programmed an Android/iOS app with Cordova for inventory management, securing 10 new clients"
+    ]
+  },
+  {
+    "category": "Experience",
+    "name": "Software Developer Intern",
+    "company": "Zcom Systems",
+    "location": "Mississauga, ON",
+    "startDate": "May 2017",
+    "endDate": "August 2017",
+    "years": ["2020"],
+    "summary": "Built and tested webpages and applications for clients using JavaScript and jQuery",
+    "description": [
+      "Tested websites and resolved issues in client apps, partnering with a PM to deliver features on time and within scope"
+    ]
+  }
+]
