@@ -4,10 +4,10 @@
     "name": "Senior Full Stack Developer",
     "company": "Forged Operations",
     "location": "Toronto, ON",
-    "startDate": "April 2024",
+    "startDate": "Apr 2024",
     "endDate": "Present",
     "years": ["2024"],
-    "summary": "Led the project department and increased efficiency by standardizing frameworks and client interactions. Mentored junior developers, drove security discussions, and built an AI chatbot.",
+    "summary": "Led the project department at an energy software startup. Mentored junior developers, built an authentication module and an AI chatbot.",
     "description": [
       "Overhauled the project department at an energy software startup by introducing frameworks to standardize timelines, pricing, documentation, and customer communication processes, reducing project management overhead by 40%",
       "Mentored 2 junior developers to enhance their analytical skills, fostering collaboration and lifting team productivity",
@@ -23,9 +23,9 @@
     "company": "Forged Operations",
     "location": "Toronto, ON",
     "startDate": "May 2023",
-    "endDate": "April 2024",
+    "endDate": "Apr 2024",
     "years": ["2023", "2024"],
-    "summary": "Developed and maintained multiple web applications used by 120,000+ users daily utilizing Vue, Node.js, Nuxt, and MongoDB.",
+    "summary": "Developed and maintained multiple web applications used by 120,000+ users daily utilizing TypeScript, Vue, Node.js, Nuxt, and MongoDB.",
     "description": [
       "Engineered full-stack SaaS applications for 120,000+ users using TypeScript, ensuring reliability in large-scale systems",
       "Designed 60+ RESTful API endpoints with Node and created object-oriented backend microservices with modular code",
@@ -37,28 +37,14 @@
   },
   {
     "category": "Education",
-    "name": "IBM Data Analyst Specialization",
-    "company": "Coursera Certification",
-    "startDate": "February 2023",
-    "years": ["2023"],
-    "url": "https://www.coursera.org/account/accomplishments/specialization/certificate/53DTZQXTE9N7"
-  },
-  {
-    "category": "Education",
-    "name": "Google Data Analytics Specialization",
-    "company": "Coursera Certification",
-    "startDate": "January 2023",
-    "years": ["2023"],
-    "url": "https://www.coursera.org/account/accomplishments/specialization/certificate/L3X5HKKDFER5"
-  },
-  {
-    "category": "Education",
-    "name": "Master of I.T Security, Artificial Intelligence",
+    "name": "Master of I.T Security, AI",
     "company": "Ontario Tech University",
-    "startDate": "September 2021",
-    "endDate": "October 2022",
+    "startDate": "Sep 2021",
+    "endDate": "Oct 2022",
     "years": ["2021", "2022"],
-    "description": ["Graduated with a 4.15 / 4.3 GPA"]
+    "description": ["Graduated with a 4.15 / 4.3 GPA"],
+    "location": "Oshawa, ON",
+    "summary": "GPA: 4.15 / 4.3"
   },
   {
     "category": "Experience",
@@ -66,9 +52,9 @@
     "company": "Treefrog",
     "location": "Newmarket, ON",
     "startDate": "May 2022",
-    "endDate": "August 2022",
+    "endDate": "Aug 2022",
     "years": ["2022"],
-    "summary": "Researched and mapped security vulnerabilities within company, launched a hosting app, and used Terraform to create GCP environments",
+    "summary": "Mapped security vulnerabilities, created Python scripts, launched a hosting app, and used Terraform to create GCP environments",
     "description": [
       "Produced Python scripts to examine and clean up client data, resulting in a 20% increase in Plesk server performance",
       "Migrated existing on-premise infrastructure to GCP using Terraform, cutting costs by 30% and improving scalability"
@@ -79,8 +65,8 @@
     "name": "Frontend Developer",
     "company": "MobileXCo",
     "location": "Remote",
-    "startDate": "July 2020",
-    "endDate": "August 2021",
+    "startDate": "Jul 2020",
+    "endDate": "Sep 2021",
     "years": ["2020", "2021"],
     "summary": "Created, styled, and tested numerous promotional websites for Canadian businesses such as Tim Hortons and Royale",
     "description": [
@@ -93,20 +79,40 @@
     "category": "Education",
     "name": "Bachelor of I.T (Hons)",
     "company": "Ontario Tech University",
-    "startDate": "September 2018",
-    "endDate": "April 2021",
+    "startDate": "Sep 2018",
+    "endDate": "Apr 2021",
     "years": ["2018", "2019", "2020", "2021"],
     "description": [
       "Graduated with a 3.71 / 4.3 GPA, specializing in Networking and I.T Security",
       "President's Award (4x), Dean's Award (1x)"
-    ]
+    ],
+    "location": "Oshawa, ON",
+    "summary": "GPA: 3.71 / 4.3"
+  },
+  {
+    "category": "Education",
+    "name": "IBM Data Analyst Specialization",
+    "company": "Coursera Certification",
+    "startDate": "Feb 2023",
+    "years": ["2023"],
+    "url": "https://www.coursera.org/account/accomplishments/specialization/certificate/53DTZQXTE9N7",
+    "summary": "Performed data analysis, visualization, and reporting using Python and SQL"
+  },
+  {
+    "category": "Education",
+    "name": "Google Data Analytics Specialization",
+    "company": "Coursera Certification",
+    "startDate": "Jan 2023",
+    "years": ["2023"],
+    "url": "https://www.coursera.org/account/accomplishments/specialization/certificate/L3X5HKKDFER5",
+    "summary": "Used R to visualize and analyze data points"
   },
   {
     "category": "Volunteer",
     "name": "Project Lead of Skill Series",
     "company": "Enactus Ontario Tech ",
     "location": "Oshawa, ON",
-    "startDate": "July 2020",
+    "startDate": "Jul 2020",
     "endDate": "May 2021",
     "years": ["2020", "2021"],
     "summary": "Directed a team of 5 individuals to create interactive online workshops that inspired students to learn new skills",
@@ -121,8 +127,8 @@
     "name": "Peer Tutor",
     "company": "Ontario Tech University",
     "location": "Oshawa, ON",
-    "startDate": "September 2019",
-    "endDate": "April 2020",
+    "startDate": "Sep 2019",
+    "endDate": "Apr 2020",
     "years": ["2019, 2020"],
     "summary": "Conducted 300+ tutoring sessions in math and programming, imparting problem-solving and study strategies",
     "description": [
@@ -135,7 +141,7 @@
     "company": "Ontario Tech University",
     "location": "Oshawa, ON",
     "startDate": "May 2020",
-    "endDate": "July 2020",
+    "endDate": "Jul 2020",
     "years": ["2020"],
     "summary": "Researched. evaluated. and developed a blockchain network with smart contracts using Hyperledger Fabric",
     "description": [
@@ -147,7 +153,7 @@
     "name": "Lead of Social Media and Marketing",
     "company": "Enactus Ontario Tech",
     "location": "Oshawa, ON",
-    "startDate": "September 2019",
+    "startDate": "Sep 2019",
     "endDate": "May 2020",
     "years": ["2019", "2020"],
     "summary": "Operated the Enactus Ontario Tech social media accounts",
@@ -162,7 +168,7 @@
     "company": "Kloudville",
     "location": "Mississauga, ON",
     "startDate": "May 2018",
-    "endDate": "August 2018",
+    "endDate": "Aug 2018",
     "years": ["2018"],
     "summary": "Designed and developed a fully-fledged Android and iOS application for the Kloudville software using Apache Cordova",
     "description": [
@@ -175,7 +181,7 @@
     "company": "Zcom Systems",
     "location": "Mississauga, ON",
     "startDate": "May 2017",
-    "endDate": "August 2017",
+    "endDate": "Aug 2017",
     "years": ["2020"],
     "summary": "Built and tested webpages and applications for clients using JavaScript and jQuery",
     "description": [

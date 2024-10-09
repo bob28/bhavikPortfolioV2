@@ -7,7 +7,7 @@ import { cn } from "@/lib/utils";
 export default function Navbar({ className }: { className?: string }) {
   const [active, setActive] = useState<string | null>(null);
   const currentPath = usePathname();
-  const coloredLink = "text-blue-400 font-bold";
+  const coloredLink = "!text-blue-500 font-bold hover:!text-blue-400";
   return (
     <div
       className={cn("fixed top-10 inset-x-0 max-w-2xl mx-auto z-50", className)}
