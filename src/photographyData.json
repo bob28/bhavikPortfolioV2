@@ -1,0 +1,140 @@
+[
+  {
+    "src": "pictures/1.jpeg",
+    "width": 2792,
+    "height": 1862,
+    "isSelected": false
+  },
+  {
+    "src": "pictures/10.jpeg",
+    "width": 2782,
+    "height": 1855,
+    "isSelected": false
+  },
+  {
+    "src": "pictures/11.jpeg",
+    "width": 1767,
+    "height": 2651,
+    "isSelected": false
+  },
+  {
+    "src": "pictures/12.jpeg",
+    "width": 2658,
+    "height": 1772,
+    "isSelected": false
+  },
+  {
+    "src": "pictures/13.jpeg",
+    "width": 1678,
+    "height": 2034,
+    "isSelected": false
+  },
+  {
+    "src": "pictures/14.jpg",
+    "width": 2811,
+    "height": 1582,
+    "isSelected": false
+  },
+  {
+    "src": "pictures/15.jpg",
+    "width": 2168,
+    "height": 1626,
+    "isSelected": false
+  },
+  {
+    "src": "pictures/16.jpeg",
+    "width": 2784,
+    "height": 1688,
+    "isSelected": false
+  },
+  {
+    "src": "pictures/17.jpeg",
+    "width": 1971,
+    "height": 2338,
+    "isSelected": false
+  },
+  {
+    "src": "pictures/18.jpeg",
+    "width": 1671,
+    "height": 2828,
+    "isSelected": false
+  },
+  {
+    "src": "pictures/19.jpeg",
+    "width": 2800,
+    "height": 1768,
+    "isSelected": false
+  },
+  {
+    "src": "pictures/2.jpeg",
+    "width": 1762,
+    "height": 2270,
+    "isSelected": false
+  },
+  {
+    "src": "pictures/20.jpeg",
+    "width": 1973,
+    "height": 2424,
+    "isSelected": false
+  },
+  {
+    "src": "pictures/21.jpg",
+    "width": 1677,
+    "height": 2236,
+    "isSelected": false
+  },
+  {
+    "src": "pictures/23.jpg",
+    "width": 1537,
+    "height": 2050,
+    "isSelected": false
+  },
+  {
+    "src": "pictures/24.jpeg",
+    "width": 2290,
+    "height": 1807,
+    "isSelected": false
+  },
+  {
+    "src": "pictures/26.jpeg",
+    "width": 1674,
+    "height": 2510,
+    "isSelected": false
+  },
+  {
+    "src": "pictures/3.jpeg",
+    "width": 2440,
+    "height": 1657,
+    "isSelected": false
+  },
+  {
+    "src": "pictures/4.jpeg",
+    "width": 1897,
+    "height": 2357,
+    "isSelected": false
+  },
+  {
+    "src": "pictures/5.jpeg",
+    "width": 1939,
+    "height": 2908,
+    "isSelected": false
+  },
+  {
+    "src": "pictures/6.jpeg",
+    "width": 1938,
+    "height": 2907,
+    "isSelected": false
+  },
+  {
+    "src": "pictures/7.jpg",
+    "width": 1688,
+    "height": 3000,
+    "isSelected": false
+  },
+  {
+    "src": "pictures/8.jpg",
+    "width": 1572,
+    "height": 2096,
+    "isSelected": false
+  }
+]

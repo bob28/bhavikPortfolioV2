@@ -4,16 +4,16 @@ import Footer from "@/components/footer";
 
 export default function Home() {
   return (
-    <main className=" ">
+    <main className="bg-slate-900">
       <Navbar />
       <div className=" mx-auto rounded-md overflow-hidden">
-        <LampContainer>
-          <h1 className=" bg-gradient-to-br from-slate-300 to-slate-500 py-4 bg-clip-text text-center text-4xl font-medium tracking-tight text-transparent md:text-7xl">
-            Build lamps <br /> the right way
+        <LampContainer color="green">
+          <h1 className=" bg-gradient-to-b from-green-400 to-slate-800 py-4 bg-clip-text text-center font-medium tracking-tight text-transparent text-6xl md:text-8xl">
+            Hi. I'm Bhavik <br />A Developer
           </h1>
         </LampContainer>
       </div>
-
+      <div className="container mx-auto">hello</div>
       <Footer />
 
       {/* <div>
@@ -77,7 +77,6 @@ export default function Home() {
             </div>
           </h2> */}
       {/* </BackgroundBeamsWithCollision> */}
-      <h1>heelo</h1>
     </main>
   );
 }

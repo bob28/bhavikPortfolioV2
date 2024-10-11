@@ -9,6 +9,20 @@ const config = {
     './app/**/*.{ts,tsx}',
     './src/**/*.{ts,tsx}',
 	],
+  safelist:[
+    {
+      pattern: /bg-(red|green|blue)-400/,
+    },
+    {
+      pattern: /bg-(red|green|blue)-500/,
+    },
+    {
+      pattern: /from-(red|green|blue)-500/,
+    },
+    {
+      pattern: /to-(red|green|blue)-500/,
+    },
+  ],
   prefix: "",
   theme: {
     container: {

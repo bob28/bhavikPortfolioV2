@@ -19,6 +19,9 @@ const geistMono = localFont({
 export const metadata: Metadata = {
   title: "Bhavik Naik",
   description: "Bhavik Naik's portfolio",
+  icons: {
+    icon: "favicon.webp",
+  },
 };
 
 export default function RootLayout({
