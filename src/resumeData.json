@@ -7,6 +7,18 @@
     "startDate": "Apr 2024",
     "endDate": "Present",
     "years": ["2024"],
+    "skills": [
+      "TypeScript",
+      "JavaScript",
+      "Node.js",
+      "Vue.js",
+      "MongoDB",
+      "MS SQL",
+      "Azure",
+      "Express.js",
+      "Nuxt.js",
+      "Cypress"
+    ],
     "summary": "Led the project department at an energy software startup. Mentored junior developers, built an authentication module and an AI chatbot.",
     "description": [
       "Overhauled the project department at an energy software startup by introducing frameworks to standardize timelines, pricing, documentation, and customer communication processes, reducing project management overhead by 40%",

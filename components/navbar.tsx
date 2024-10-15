@@ -4,6 +4,20 @@ import { usePathname } from "next/navigation";
 import { HoveredLink, Menu } from "@/components/ui/navbar-menu";
 import { cn } from "@/lib/utils";
 
+/**
+ * Navbar component that renders a fixed navigation bar with links to different sections of the portfolio.
+ *
+ * @param {Object} props - The properties object.
+ * @param {string} [props.className] - Optional additional class names to apply to the navbar container.
+ *
+ * @returns {JSX.Element} The rendered Navbar component.
+ *
+ * @component
+ * @example
+ * return (
+ *   <Navbar className="custom-class" />
+ * )
+ */
 export default function Navbar({ className }: { className?: string }) {
   const [active, setActive] = useState<string | null>(null);
   const currentPath = usePathname();

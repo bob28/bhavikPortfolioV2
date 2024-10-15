@@ -8,7 +8,6 @@ import { Button } from "primereact/button";
 import { Card } from "primereact/card";
 import ResumeCards from "@/components/resumeCards";
 import resumeData from "@/src/resumeData.json";
-import { Tooltip } from "primereact/tooltip";
 import {
   FaArrowUp,
   FaJava,
@@ -48,7 +47,6 @@ import {
 import { PiDotsThreeCircle } from "react-icons/pi";
 import { MdFoundation } from "react-icons/md";
 import { FaGears, FaLightbulb } from "react-icons/fa6";
-import { GiGears } from "react-icons/gi";
 
 export default function Resume() {
   const [showScrollButton, setShowScrollButton] = useState(false);
@@ -114,8 +112,9 @@ export default function Resume() {
         </h1>
         <div className="justify-center">
           <Button
-            className="border-2 border-blue-400 p-2 mt-8 text-slate-200 text-sm hover:bg-blue-700 -mb-14"
+            className="border-2 border-blue-400 p-2 mt-8 text-slate-200 text-sm hover:bg-blue-700 -mb-14 rounded-md"
             label="Download Resume"
+            onClick={() => window.open("/Bhavik-Naik-Resume.pdf", "_blank")}
           />
         </div>
       </LampContainer>
@@ -125,7 +124,7 @@ export default function Resume() {
             <Button
               icon={<FaArrowUp />}
               aria-label="Scroll to top"
-              className="text-xl bg-blue-400 hover:bg-blue-500 text-slate-900 py-1 rounded-md shadow-md"
+              className="text-xl bg-blue-400 hover:bg-blue-500 text-slate-900 py-1  shadow-md"
               onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
               tooltipOptions={{
                 position: "left",
@@ -195,13 +194,50 @@ export default function Resume() {
             }}
           />
         </div>
-
+        <div className="flex justify-center gap-4">
+          <Button
+            icon={<FaGears />}
+            className="text-lg bg-blue-400 text-slate-900 p-2 hover:bg-blue-500"
+            onClick={() => {
+              document
+                .querySelector("#skills")
+                ?.scrollIntoView({ behavior: "smooth" });
+            }}
+          />
+          <Button
+            icon={<FaLightbulb />}
+            className="text-lg bg-blue-400 text-slate-900 p-2 hover:bg-blue-500"
+            onClick={() => {
+              document
+                .querySelector("#experience")
+                ?.scrollIntoView({ behavior: "smooth" });
+            }}
+          />
+          <Button
+            icon={<FaGraduationCap />}
+            className="text-lg bg-blue-400 text-slate-900 p-2 hover:bg-blue-500"
+            onClick={() => {
+              document
+                .querySelector("#education")
+                ?.scrollIntoView({ behavior: "smooth" });
+            }}
+          />
+          <Button
+            icon={<FaHandsHelping />}
+            className="text-lg bg-blue-400 text-slate-900 p-2 hover:bg-blue-500"
+            onClick={() => {
+              document
+                .querySelector("#volunteer")
+                ?.scrollIntoView({ behavior: "smooth" });
+            }}
+          />
+        </div>
         <h1 id="skills" className="text-3xl text-slate-300 my-10 font-bold ">
           Skills
         </h1>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
           <Card
-            className="shadow-lg rounded-lg bg-slate-800 hover:bg-slate-900 hover:border hover:border-blue-500"
+            className="shadow-lg rounded-2xl bg-slate-800 hover:bg-slate-900 hover:border hover:border-blue-500"
             pt={{
               body: {
                 className: "p-5 py-0",
@@ -242,7 +278,7 @@ export default function Resume() {
             </div>
           </Card>
           <Card
-            className=" shadow-lg rounded-lg bg-slate-800 hover:bg-slate-900 hover:border hover:border-blue-500"
+            className=" shadow-lg rounded-2xl bg-slate-800 hover:bg-slate-900 hover:border hover:border-blue-500"
             pt={{
               body: {
                 className: "p-5 py-0",
@@ -283,7 +319,7 @@ export default function Resume() {
             </div>
           </Card>
           <Card
-            className=" shadow-lg rounded-lg bg-slate-800 hover:bg-slate-900 hover:border hover:border-blue-500"
+            className=" shadow-lg rounded-2xl bg-slate-800 hover:bg-slate-900 hover:border hover:border-blue-500"
             pt={{
               body: {
                 className: "p-5 py-0",
@@ -360,16 +396,6 @@ export default function Resume() {
         </div>
       </div>
 
-      {/* 
-      <div className=" mx-auto rounded-md overflow-hidden bg-slate-950">
-        {resumeData.map((section) => (
-          <section key={section.title} className="p-8">
-            <h2 className="text-3xl font-bold text-neutral-100">
-              {section.name}
-            </h2>
-          </section>
-        ))}
-      </div> */}
       <Footer />
     </main>
   );
