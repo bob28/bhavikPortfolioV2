@@ -1,14 +1,7 @@
 "use client";
 
 import { Card } from "primereact/card";
-import {
-  FaClipboardList,
-  FaLightbulb,
-  FaCalendarAlt,
-  FaBriefcase,
-  FaMapMarkerAlt,
-} from "react-icons/fa";
-import { Chip } from "primereact/chip";
+import { FaCalendarAlt, FaMapMarkerAlt } from "react-icons/fa";
 
 interface ResumeData {
   category: string;

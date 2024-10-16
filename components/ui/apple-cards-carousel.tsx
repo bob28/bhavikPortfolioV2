@@ -1,12 +1,8 @@
 "use client";
 import React, { useEffect, useState, createContext } from "react";
-import {
-  IconArrowNarrowLeft,
-  IconArrowNarrowRight,
-  IconX,
-} from "@tabler/icons-react";
+import { IconArrowNarrowLeft, IconArrowNarrowRight } from "@tabler/icons-react";
 import { cn } from "@/lib/utils";
-import { AnimatePresence, motion } from "framer-motion";
+import { motion } from "framer-motion";
 import Image, { ImageProps } from "next/image";
 import { Dialog } from "primereact/dialog";
 import { ShootingStars } from "./shooting-stars";
