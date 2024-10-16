@@ -22,6 +22,8 @@ const config = {
     {
       pattern: /to-(red|green|blue)-500/,
     },
+    "from-[#166534]", 
+    "text-green-400"
   ],
   prefix: "",
   theme: {
