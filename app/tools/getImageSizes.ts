@@ -1,3 +1,8 @@
+/***
+ * This file is to determine the height and width of the images in the photography folder. It 
+ * allows the react-gallery component to display the images correctly. 
+ */
+
 import fs from 'fs'; // Import the file system module
 import path from 'path'; // Import the path module
 import sizeOf from 'image-size'; // Import the image-size module to get image dimensions

@@ -1,6 +1,7 @@
 "use client";
 import { LampContainer } from "@/components/ui/lamp";
 import { Meteors } from "@/components/ui/meteors";
+import { Button } from "primereact/button";
 import Navbar from "@/components/navbar";
 import Footer from "@/components/footer";
 import { Carousel, Card } from "@/components/ui/apple-cards-carousel";
@@ -16,6 +17,7 @@ import {
 } from "react-icons/fa";
 import { GoProjectSymlink } from "react-icons/go";
 import { MdContactMail } from "react-icons/md";
+import { summary } from "framer-motion/client";
 
 const PortfolioProjectContent = () => {
   return (
@@ -24,6 +26,7 @@ const PortfolioProjectContent = () => {
       <div className="flex flex-wrap gap-2 mt-2">
         <Chip label="Next.js" className="text-sm" />
         <Chip label="React" className="text-sm" />
+        <Chip label="Vercel" className="text-sm" />
         <Chip label="TailwindCSS" className="text-sm" />
         <Chip label="AceternityUI" className="text-sm" />
         <Chip label="PrimeReact" className="text-sm" />
@@ -58,9 +61,10 @@ const PortfolioProjectContent = () => {
           I built this portfolio website to showcase my resume, projects, and
           photography. The site is developed using Next.js and React, styled
           with TailwindCSS, and utilizes components from PrimeReact and
-          AceternityUI. It features a dynamic carousel to display my projects,
-          and sections dedicated to my professional experience, personal
-          interests, and contact information.
+          AceternityUI. It is deployed with Vercel and hosted by GitHub pages.
+          It features a dynamic carousel to display my projects, and sections
+          dedicated to my professional experience, personal interests, and
+          contact information.
         </p>
       </div>
     </div>
@@ -356,25 +360,28 @@ export default function Home() {
     {
       category: "Frontend",
       title: "Portfolio V2",
-      src: "/projects/portfoliov2.png",
       content: <PortfolioProjectContent />,
+      summary:
+        "Portfolio V2 is this current site showcasing a frontend React and Next.js personal website deployed with Vercel",
     },
     {
       category: "Fullstack",
       title: "Chat and Voice Application",
-      src: "https://images.unsplash.com/photo-1531554694128-c4c6665f59c2?q=80&w=3387&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      summary:
+        "A application built on Node and Flask that enabled text and voice communication",
       content: <ChatVoiceContent />,
     },
     {
       category: "Fullstack",
-      title: "School Projects, Blockchain, Machine Learning, and more",
-      src: "https://images.unsplash.com/photo-1713869791518-a770879e60dc?q=80&w=2333&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      title: "School Final Projects",
+      summary:
+        "School projects that focused on machine learning, blockchain, or network data analysis",
       content: <SchoolProjects />,
     },
   ];
 
   const cards = data.map((card, index) => (
-    <Card key={card.src} card={card} index={index} />
+    <Card key={card.title} card={card} index={index} />
   ));
 
   return (
@@ -410,7 +417,7 @@ export default function Home() {
               onClick={() => (window.location.href = "/resume")}
             />
 
-            <Meteors number={30} />
+            <Meteors number={17} />
           </div>
           <div className="relative shadow-xl text-center align-middle justify-center bg-slate-800 border border-gray-800 px-5 py-6 h-full overflow-hidden rounded-2xl flex flex-col items-center">
             <GoProjectSymlink className="text-green-400 text-5xl mb-4 text-center " />
@@ -430,7 +437,7 @@ export default function Home() {
               onClick={() => window.open("https://github.com/bob28")}
             />
 
-            <Meteors number={30} />
+            <Meteors number={17} />
           </div>
           <div className="relative shadow-xl text-center align-middle justify-center bg-slate-800 border border-gray-800 px-5 py-6 h-full overflow-hidden rounded-2xl flex flex-col items-center">
             <FaCamera className="text-green-400 text-5xl mb-4 text-center " />
@@ -449,7 +456,7 @@ export default function Home() {
               onClick={() => (window.location.href = "/photography")}
             />
 
-            <Meteors number={30} />
+            <Meteors number={17} />
           </div>
           <div className="relative shadow-xl text-center align-middle justify-center bg-slate-800 border border-gray-800 px-5 py-6 h-full overflow-hidden rounded-2xl flex flex-col items-center">
             <FaBlog className="text-green-400 text-5xl mb-4 text-center " />
@@ -469,7 +476,7 @@ export default function Home() {
               onClick={() => window.open("https://bhaviksblogs.wordpress.com/")}
             />
 
-            <Meteors number={30} />
+            <Meteors number={17} />
           </div>
         </div>
         <div className="relative">

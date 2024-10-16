@@ -9,6 +9,8 @@ import { cn } from "@/lib/utils";
 import { AnimatePresence, motion } from "framer-motion";
 import Image, { ImageProps } from "next/image";
 import { Dialog } from "primereact/dialog";
+import { ShootingStars } from "./shooting-stars";
+import { StarsBackground } from "./stars-background";
 
 interface CarouselProps {
   items: JSX.Element[];
@@ -16,7 +18,7 @@ interface CarouselProps {
 }
 
 type Card = {
-  src: string;
+  summary: string;
   title: string;
   category: string;
   content: React.ReactNode;
@@ -92,7 +94,7 @@ export const Carousel = ({ items, initialScroll = 0 }: CarouselProps) => {
         >
           <div
             className={cn(
-              "absolute right-0  z-[1000] h-auto  w-[5%] overflow-hidden bg-gradient-to-l"
+              "absolute right-0 h-auto  w-[5%] overflow-hidden bg-gradient-to-l"
             )}
           ></div>
 
@@ -166,35 +168,47 @@ export const Card = ({
           },
         }}
       >
-        <p className="m-0">{card.content}</p>
+        <p className="m-0">{card.content} </p>
       </Dialog>
 
       <motion.button
-        layoutId={layout ? `card-${card.title}` : undefined}
         onClick={() => setVisible(true)}
-        className="rounded-3xl bg-gray-100 dark:bg-neutral-900 h-80 w-56 md:h-[30rem] md:w-96 overflow-hidden flex flex-col items-start justify-start relative z-10"
+        layoutId={layout ? `card-${card.title}` : undefined}
+        className="text-left rounded-3xl shadow-lg h-[25rem] w-56 md:w-80 p-8 overflow-hidden flex flex-col items-start justify-start relative z-10 bg-slate-800 transform transition-transform duration-300 hover:scale-105 hover:cursor-pointer"
       >
-        <div className="absolute h-full top-0 inset-x-0 bg-gradient-to-b from-black/50 via-transparent to-transparent z-30 pointer-events-none" />
-        <div className="relative z-40 p-8 ">
-          <motion.p
-            layoutId={layout ? `category-${card.category}` : undefined}
-            className="text-white text-sm md:text-base font-medium font-sans text-left"
-          >
-            {card.category}
-          </motion.p>
-          <motion.p
-            layoutId={layout ? `title-${card.title}` : undefined}
-            className="text-white text-xl md:text-3xl font-semibold max-w-xs text-left [text-wrap:balance] font-sans mt-2"
-          >
-            {card.title}
-          </motion.p>
+        <p className="mb-3 font-normal text-slate-300">{card.category}</p>
+        <h5 className="mb-3 text-2xl font-semibold tracking-tight text-slate-200">
+          {card.title}
+        </h5>
+        <p className="mb-3 font-normal text-slate-300">{card.summary}</p>
+        <div className="mt-auto">
+          <p className="inline-flex font-medium items-center text-green-400 hover:underline">
+            View details
+            <svg
+              className="w-3 h-3 ms-2.5 rtl:rotate-[270deg]"
+              aria-hidden="true"
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 18 18"
+            >
+              <path
+                stroke="currentColor"
+                strokeWidth="2"
+                d="M15 11v4.833A1.166 1.166 0 0 1 13.833 17H2.167A1.167 1.167 0 0 1 1 15.833V4.167A1.166 1.166 0 0 1 2.167 3h4.618m4.447-2H17v5.768M9.111 8.889l7.778-7.778"
+              />
+            </svg>
+          </p>
         </div>
-        <BlurImage
-          src={card.src}
-          alt={card.title}
-          fill
-          className="object-cover absolute z-10 inset-0 opacity-50"
+        <ShootingStars
+          maxDelay={2000}
+          minDelay={1000}
+          starColor={"#4ade80"}
+          trailColor="4ade80"
+          starWidth={15}
+          starHeight={2}
+          maxSpeed={20}
         />
+        <StarsBackground starDensity={0.001} />
       </motion.button>
     </>
   );
