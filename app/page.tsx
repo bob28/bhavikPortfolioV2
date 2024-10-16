@@ -26,10 +26,10 @@ const PortfolioProjectContent = () => {
       <div className="flex flex-wrap gap-2 mt-2">
         <Chip label="Next.js" className="text-sm" />
         <Chip label="React" className="text-sm" />
-        <Chip label="Vercel" className="text-sm" />
         <Chip label="TailwindCSS" className="text-sm" />
         <Chip label="AceternityUI" className="text-sm" />
         <Chip label="PrimeReact" className="text-sm" />
+        <Chip label="Github Actions" className="text-sm" />
       </div>
       <div className="grid grid-cols-1 md:grid-cols-3 gap-x-10 gap-y-5 mt-4">
         <div>
@@ -61,10 +61,10 @@ const PortfolioProjectContent = () => {
           I built this portfolio website to showcase my resume, projects, and
           photography. The site is developed using Next.js and React, styled
           with TailwindCSS, and utilizes components from PrimeReact and
-          AceternityUI. It is deployed with Vercel and hosted by GitHub pages.
-          It features a dynamic carousel to display my projects, and sections
-          dedicated to my professional experience, personal interests, and
-          contact information.
+          AceternityUI. It is built with Github Actions and hosted by GitHub
+          pages. It features a dynamic carousel to display my projects, and
+          sections dedicated to my professional experience, personal interests,
+          and contact information.
         </p>
       </div>
     </div>
@@ -362,7 +362,7 @@ export default function Home() {
       title: "Portfolio V2",
       content: <PortfolioProjectContent />,
       summary:
-        "Portfolio V2 is this current site showcasing a frontend React and Next.js personal website deployed with Vercel",
+        "Portfolio V2 is this current site showcasing a frontend React and Next.js personal website deployed on Github",
     },
     {
       category: "Fullstack",
@@ -493,9 +493,10 @@ export default function Home() {
               <MdContactMail />
             </h1>
             <div className="font-normal text-base text-slate-200 mb-4 relative  flex flex-col gap-4">
-              I'm actively seeking new opportunities, so please don't hesitate{" "}
-              <br />
-              to reach out to me or simply say hello!
+              <p className="px-5 md:px-52">
+                I'm actively seeking new opportunities, so please don't hesitate{" "}
+                to reach out to me or simply say hello!
+              </p>
               <div>
                 <div className="font-bold mb-1">Email</div>
                 <a
