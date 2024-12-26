@@ -17,7 +17,6 @@ import {
 } from "react-icons/fa";
 import { GoProjectSymlink } from "react-icons/go";
 import { MdContactMail } from "react-icons/md";
-import { summary } from "framer-motion/client";
 
 const PortfolioProjectContent = () => {
   return (
