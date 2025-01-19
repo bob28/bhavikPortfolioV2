@@ -1,11 +1,36 @@
 [
   {
     "category": "Experience",
+    "name": "Full Stack Developer",
+    "company": "TELUS",
+    "location": "Toronto, ON",
+    "startDate": "Jan 2025",
+    "endDate": "Present",
+    "years": ["2025"],
+    "skills": [
+      "TypeScript",
+      "JavaScript",
+      "Node.js",
+      "React.js",
+      "Palantir Foundry"
+    ],
+    "summary": "Created LLM and GenAI bots for internal tooling. Built full stack applications with TypeScript, React, and Node.js.",
+    "description": [
+      "Overhauled the project department at an energy software startup by introducing frameworks to standardize timelines, pricing, documentation, and customer communication processes, reducing project management overhead by 40%",
+      "Mentored 2 junior developers to enhance their analytical skills, fostering collaboration and lifting team productivity",
+      "Directed the creation of an AI chatbot with Azure, ensuring regulatory compliance and expediting problem resolution",
+      "Architected Nuxt modules with Nitro for plug-and-play feature integration, decreasing development time by 60",
+      "Built an OAuth2 module in Express with Microsoft and single sign-on integrations, establishing uniform authentication",
+      "Spearheaded 4 Agile SDLC projects, producing clear technical documentation and driving successful client interactions"
+    ]
+  },
+  {
+    "category": "Experience",
     "name": "Senior Full Stack Developer",
     "company": "Forged Operations",
     "location": "Toronto, ON",
     "startDate": "Apr 2024",
-    "endDate": "Present",
+    "endDate": "Dec 2024",
     "years": ["2024"],
     "skills": [
       "TypeScript",

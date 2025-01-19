@@ -70,6 +70,66 @@ const PortfolioProjectContent = () => {
   );
 };
 
+const HealthHubContent = () => {
+  return (
+    <div className="px-4 pb-2 md:px-14 md:pb-10 ">
+      <h2 className="text-3xl font-bold text-slate-200 mb-3">
+        HealthHub Project
+      </h2>
+      <div className="flex flex-wrap gap-2 mt-2">
+        <Chip label="Python" className="text-sm" />
+        <Chip label="TypeScript" className="text-sm" />
+        <Chip label="Django" className="text-sm" />
+        <Chip label="React" className="text-sm" />
+        <Chip label="Next.js" className="text-sm" />
+        <Chip label="TailwindCSS" className="text-sm" />
+        <Chip label="Mantine" className="text-sm" />
+      </div>
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-x-10 gap-y-5 mt-4">
+        <div>
+          <h3 className="text-xl font-semibold text-slate-200">Type</h3>
+          <p className="text-slate-300">Full stack development</p>
+        </div>
+        <div>
+          <h3 className="text-xl font-semibold text-slate-200">Purpose</h3>
+          <p className="text-slate-300">Personal Project</p>
+        </div>
+        <div>
+          <h3 className="text-xl font-semibold text-slate-200">
+            GitHub Repository
+          </h3>
+          <a
+            href="https://github.com/bob28/healthhub-project"
+            className="text-green-400 hover:underline"
+            target="_blank"
+          >
+            Github
+          </a>
+        </div>
+      </div>
+      <div className="mt-5">
+        <h3 className="text-xl font-semibold text-slate-200">Summary</h3>
+        <p className="text-slate-300">
+          <p className="text-slate-300">
+            Currently in development:
+            <br />
+            HealthHub is a fullstack SaaS application that enables users to
+            track their medical history, appointments, and health metrics. The
+            application provides a user-friendly interface for logging and
+            monitoring health data, providing a way for doctors and providers to
+            insert medical records, and generating reports for healthcare
+            providers. The project aims to empower users to take control of
+            their health by providing comprehensive tools for health management
+            and data analysis. It is built with Django, Python, React, and Next.
+            It leverages components from Mantime and is styled using
+            TailwindCSS.
+          </p>
+        </p>
+      </div>
+    </div>
+  );
+};
+
 const ChatVoiceContent = () => {
   return (
     <div className="px-4 pb-2 md:px-14 md:pb-10 ">
@@ -357,6 +417,13 @@ const SchoolProjects = () => {
 export default function Home() {
   const data = [
     {
+      category: "Fullstack",
+      title: "HealthHub Project",
+      summary:
+        "A fullstack SaaS application built with React, Next.js, Django, and MySQL that allows users to track their medical history and appointments",
+      content: <HealthHubContent />,
+    },
+    {
       category: "Frontend",
       title: "Portfolio V2",
       content: <PortfolioProjectContent />,
@@ -389,7 +456,7 @@ export default function Home() {
       <div className=" mx-auto rounded-md overflow-hidden">
         <LampContainer color="green">
           <h1 className=" bg-gradient-to-b from-green-400 to-slate-800 py-4 bg-clip-text text-center font-medium tracking-tight text-transparent text-6xl md:text-8xl">
-            Hi. I'm Bhavik <br />A Developer
+            Hi. I'm Bhavik <br />A Full Stack Developer
           </h1>
         </LampContainer>
       </div>
