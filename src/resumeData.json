@@ -1,7 +1,7 @@
 [
   {
     "category": "Experience",
-    "name": "Full Stack Developer",
+    "name": "Senior Full Stack Developer",
     "company": "TELUS",
     "location": "Toronto, ON",
     "startDate": "Jan 2025",
@@ -14,7 +14,7 @@
       "React.js",
       "Palantir Foundry"
     ],
-    "summary": "Created LLM and GenAI bots for internal tooling. Built full stack applications with TypeScript, React, and Node.js.",
+    "summary": "Created GenAI models for internal tooling. Built full stack applications with TypeScript, React, and Node.js. Deployed app infrastructure to Google Cloud with Terraform.",
     "description": [
       "Overhauled the project department at an energy software startup by introducing frameworks to standardize timelines, pricing, documentation, and customer communication processes, reducing project management overhead by 40%",
       "Mentored 2 junior developers to enhance their analytical skills, fostering collaboration and lifting team productivity",
@@ -114,7 +114,7 @@
   },
   {
     "category": "Education",
-    "name": "Bachelor of I.T (Hons)",
+    "name": "Bachelor of I.T (Hons) - Networking & I.T Security",
     "company": "Ontario Tech University",
     "startDate": "Sep 2018",
     "endDate": "Apr 2021",
@@ -127,7 +127,7 @@
     "summary": "GPA: 3.71 / 4.3"
   },
   {
-    "category": "Education",
+    "category": "Education2",
     "name": "IBM Data Analyst Specialization",
     "company": "Coursera Certification",
     "startDate": "Feb 2023",
@@ -136,7 +136,7 @@
     "summary": "Performed data analysis, visualization, and reporting using Python and SQL"
   },
   {
-    "category": "Education",
+    "category": "Education2",
     "name": "Google Data Analytics Specialization",
     "company": "Coursera Certification",
     "startDate": "Jan 2023",

@@ -39,7 +39,7 @@ interface ResumeCardsProps {
 export default function ResumeCards({ data, type }: ResumeCardsProps) {
   return (
     <Card
-      className="shadow-lg rounded-2xl bg-slate-800 hover:bg-slate-900 hover:border hover:border-blue-500"
+      className="shadow-lg rounded-2xl bg-slate-800 hover:bg-slate-900"
       pt={{
         body: {
           className: "px-5 py-2",
@@ -47,8 +47,10 @@ export default function ResumeCards({ data, type }: ResumeCardsProps) {
       }}
     >
       <div>
-        <div className="flex items-center text-sm">{data.company}</div>
-        <h2 className="font-bold text-xl mt-2">{data.name}</h2>
+        <div className="flex flex-col font-bold  gap-2">
+          <h2 className="text-md">{data.company}</h2>
+          <h2 className="text-lg">{data.name}</h2>
+        </div>
 
         <div className="flex items-center text-sm mt-2">
           <FaCalendarAlt className="mr-2 text-blue-400" />
@@ -63,7 +65,7 @@ export default function ResumeCards({ data, type }: ResumeCardsProps) {
           )}
         </div>
         <div>
-          <p className="text-sm mt-5">{data.summary}</p>
+          <p className="text-sm mt-3">{data.summary}</p>
         </div>
       </div>
     </Card>

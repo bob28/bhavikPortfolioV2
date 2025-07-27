@@ -8,6 +8,8 @@ import { Button } from "primereact/button";
 import { Card } from "primereact/card";
 import ResumeCards from "@/components/resumeCards";
 import resumeData from "@/src/resumeData.json";
+import { ShootingStars } from "../../components/ui/shooting-stars";
+import { StarsBackground } from "../../components/ui/stars-background";
 import {
   FaArrowUp,
   FaJava,
@@ -110,15 +112,15 @@ export default function Resume() {
         <h1 className="bg-gradient-to-b from-blue-500 to-slate-800 py-4 bg-clip-text text-center font-medium tracking-tight text-transparent text-7xl md:text-8xl">
           Resume
         </h1>
-        <div className="justify-center">
+        {/* <div className="justify-center">
           <Button
             className="border-2 border-blue-400 p-2 mt-8 text-slate-200 text-sm hover:bg-blue-700 -mb-14 rounded-md"
             label="Download Resume"
             onClick={() => window.open("/Bhavik-Naik-Resume.pdf", "_blank")}
           />
-        </div>
+        </div> */}
       </LampContainer>
-      <div className="container mx-auto -mt-8">
+      <div className="container mx-auto -mt-10">
         <div className="fixed right-0 bottom-16 flex flex-col gap-2">
           {showScrollButton && (
             <Button
@@ -197,7 +199,7 @@ export default function Resume() {
         <div className="flex justify-center gap-4">
           <Button
             icon={<FaGears />}
-            className="text-lg bg-blue-400 text-slate-900 p-2 hover:bg-blue-500"
+            className="text-2xl bg-blue-400 text-slate-900 p-2 hover:bg-blue-500"
             onClick={() => {
               document
                 .querySelector("#skills")
@@ -206,7 +208,7 @@ export default function Resume() {
           />
           <Button
             icon={<FaLightbulb />}
-            className="text-lg bg-blue-400 text-slate-900 p-2 hover:bg-blue-500"
+            className="text-2xl bg-blue-400 text-slate-900 p-2 hover:bg-blue-500"
             onClick={() => {
               document
                 .querySelector("#experience")
@@ -215,7 +217,7 @@ export default function Resume() {
           />
           <Button
             icon={<FaGraduationCap />}
-            className="text-lg bg-blue-400 text-slate-900 p-2 hover:bg-blue-500"
+            className="text-2xl bg-blue-400 text-slate-900 p-2 hover:bg-blue-500"
             onClick={() => {
               document
                 .querySelector("#education")
@@ -224,7 +226,7 @@ export default function Resume() {
           />
           <Button
             icon={<FaHandsHelping />}
-            className="text-lg bg-blue-400 text-slate-900 p-2 hover:bg-blue-500"
+            className="text-2xl bg-blue-400 text-slate-900 p-2 hover:bg-blue-500"
             onClick={() => {
               document
                 .querySelector("#volunteer")
@@ -237,7 +239,7 @@ export default function Resume() {
         </h1>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
           <Card
-            className="shadow-lg rounded-2xl bg-slate-800 hover:bg-slate-900 hover:border hover:border-blue-500"
+            className="shadow-lg rounded-2xl bg-slate-800 hover:bg-slate-900 "
             pt={{
               body: {
                 className: "p-5 py-0",
@@ -245,8 +247,8 @@ export default function Resume() {
             }}
           >
             <div className="flex flex-col items-center mb-5">
-              <FaLanguage className="text-7xl text-blue-400 mb-2" />
-              <h1 className="text-center text-2xl font-bold">Languages</h1>
+              <FaLanguage className="text-5xl text-blue-400 mb-2" />
+              <h1 className="text-center text-xl font-bold">Languages</h1>
             </div>
             <div className="grid grid-cols-2 gap-x-4 gap-y-2 w-full">
               {languages.map((language, index) => (
@@ -259,13 +261,13 @@ export default function Resume() {
                       <span className="text-right flex-1 mr-4">
                         {language.name}
                       </span>
-                      <span className="text-blue-400 text-2xl">
+                      <span className="text-blue-400 text-xl">
                         {language.icon}
                       </span>
                     </>
                   ) : (
                     <>
-                      <span className="text-blue-400 text-2xl ">
+                      <span className="text-blue-400 text-xl ">
                         {language.icon}
                       </span>
                       <span className="text-left flex-1 ml-4">
@@ -278,7 +280,7 @@ export default function Resume() {
             </div>
           </Card>
           <Card
-            className=" shadow-lg rounded-2xl bg-slate-800 hover:bg-slate-900 hover:border hover:border-blue-500"
+            className=" shadow-lg rounded-2xl bg-slate-800 hover:bg-slate-900 "
             pt={{
               body: {
                 className: "p-5 py-0",
@@ -286,8 +288,8 @@ export default function Resume() {
             }}
           >
             <div className="flex flex-col items-center justify-center my-auto mb-5">
-              <MdFoundation className="text-7xl text-blue-400 mb-2" />
-              <h1 className="text-center text-2xl font-bold">Frameworks</h1>
+              <MdFoundation className="text-5xl text-blue-400 mb-2" />
+              <h1 className="text-center text-xl font-bold">Frameworks</h1>
             </div>
             <div className="grid grid-cols-2 gap-x-4 gap-y-2 w-full">
               {frameworks.map((language, index) => (
@@ -300,13 +302,13 @@ export default function Resume() {
                       <span className="text-right flex-1 mr-4">
                         {language.name}
                       </span>
-                      <span className="text-blue-400 text-2xl">
+                      <span className="text-blue-400 text-xl">
                         {language.icon}
                       </span>
                     </>
                   ) : (
                     <>
-                      <span className="text-blue-400 text-2xl ">
+                      <span className="text-blue-400 text-xl ">
                         {language.icon}
                       </span>
                       <span className="text-left flex-1 ml-4">
@@ -319,7 +321,7 @@ export default function Resume() {
             </div>
           </Card>
           <Card
-            className=" shadow-lg rounded-2xl bg-slate-800 hover:bg-slate-900 hover:border hover:border-blue-500"
+            className=" shadow-lg rounded-2xl bg-slate-800 hover:bg-slate-900 "
             pt={{
               body: {
                 className: "p-5 py-0",
@@ -327,8 +329,8 @@ export default function Resume() {
             }}
           >
             <div className="flex flex-col items-center justify-center my-auto mb-5">
-              <PiDotsThreeCircle className="text-7xl text-blue-400 mb-2 mt-0.5" />
-              <h1 className="text-center text-2xl font-bold">Other</h1>
+              <PiDotsThreeCircle className="text-5xl text-blue-400 mb-2 mt-0.5" />
+              <h1 className="text-center text-xl font-bold">Other</h1>
             </div>
             <div className="grid grid-cols-2 gap-x-4 gap-y-2 w-full">
               {otherSkills.map((language, index) => (
@@ -341,13 +343,13 @@ export default function Resume() {
                       <span className="text-right flex-1 mr-4">
                         {language.name}
                       </span>
-                      <span className="text-blue-400 text-2xl">
+                      <span className="text-blue-400 text-xl">
                         {language.icon}
                       </span>
                     </>
                   ) : (
                     <>
-                      <span className="text-blue-400 text-2xl ">
+                      <span className="text-blue-400 text-xl ">
                         {language.icon}
                       </span>
                       <span className="text-left flex-1 ml-4">
@@ -367,7 +369,7 @@ export default function Resume() {
         >
           Experience
         </h1>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 z-50">
           {resumeData
             .filter((item) => item.category === "Experience")
             .map((item, index) => (
@@ -377,7 +379,7 @@ export default function Resume() {
         <h1 id="education" className="text-3xl text-slate-300 my-10 font-bold ">
           Education
         </h1>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-4">
           {resumeData
             .filter((item) => item.category === "Education")
             .map((item, index) => (
@@ -387,7 +389,7 @@ export default function Resume() {
         <h1 id="volunteer" className="text-3xl text-slate-300 my-10 font-bold ">
           Volunteer Experiences
         </h1>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mb-10">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-4 mb-10">
           {resumeData
             .filter((item) => item.category === "Volunteer")
             .map((item, index) => (
@@ -395,8 +397,21 @@ export default function Resume() {
             ))}
         </div>
       </div>
-
-      <Footer />
+      <div className="fixed inset-0 -z-1 pointer-events-none">
+        <ShootingStars
+          maxDelay={9000}
+          minDelay={4000}
+          starColor={"#3b82f6"}
+          trailColor="#3b82f6"
+          starWidth={15}
+          starHeight={2}
+          maxSpeed={30}
+        />
+        <StarsBackground starDensity={0.0005} />
+      </div>
+      <div className="z-50">
+        <Footer />
+      </div>
     </main>
   );
 }
