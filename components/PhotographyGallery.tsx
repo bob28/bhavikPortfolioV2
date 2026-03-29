@@ -46,12 +46,15 @@ const calculateTargetRowHeight = (containerWidth: number) => {
 export const PhotographyGallery = ({ photos }: PhotographyGalleryProps) => {
   const [index, setIndex] = useState(-1);
   const [visibleCount, setVisibleCount] = useState(BATCH_SIZE);
+  const [prevPhotos, setPrevPhotos] = useState(photos);
   const sentinelRef = useRef<HTMLDivElement | null>(null);
 
-  // Reset visible photos when the category (photos prop) changes
-  useEffect(() => {
+  // Synchronously reset visible photos when the category (photos prop) changes
+  // This prevents React from rendering up to 100 images for the new category before the useEffect fires!
+  if (photos !== prevPhotos) {
+    setPrevPhotos(photos);
     setVisibleCount(BATCH_SIZE);
-  }, [photos]);
+  }
 
   // Prepare photos for PhotoAlbum and Lightbox
   const albumPhotos = useMemo<GalleryPhoto[]>(() => 
