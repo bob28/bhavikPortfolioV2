@@ -6,10 +6,11 @@ import Footer from "@/components/footer";
 import { LampContainer } from "@/components/ui/lamp";
 import { Button } from "primereact/button";
 import { Card } from "primereact/card";
-import ResumeCards from "@/components/resumeCards";
+import ResumeCards, { ResumeData } from "@/components/resumeCards";
 import resumeData from "@/src/resumeData.json";
 import { ShootingStars } from "../../components/ui/shooting-stars";
 import { StarsBackground } from "../../components/ui/stars-background";
+import { motion } from "framer-motion";
 import {
   FaArrowUp,
   FaJava,
@@ -31,6 +32,7 @@ import {
   SiGo,
   SiTerraform,
   SiSolidity,
+  SiClaude,
   SiExpress,
   SiNuxtdotjs,
   SiReact,
@@ -42,10 +44,10 @@ import {
   SiPostgresql,
   SiDocker,
   SiGit,
-  SiMicrosoftazure,
   SiGooglecloud,
   SiJira,
 } from "react-icons/si";
+import { VscAzure } from "react-icons/vsc";
 import { PiDotsThreeCircle } from "react-icons/pi";
 import { MdFoundation } from "react-icons/md";
 import { FaGears, FaLightbulb } from "react-icons/fa6";
@@ -53,7 +55,6 @@ import { FaGears, FaLightbulb } from "react-icons/fa6";
 export default function Resume() {
   const [showScrollButton, setShowScrollButton] = useState(false);
 
-  // This is for the scroll to top button. Handles the button visibility and adds the scroll event listener
   useEffect(() => {
     const handleScroll = () => {
       if (window.scrollY > 200) {
@@ -62,7 +63,6 @@ export default function Resume() {
         setShowScrollButton(false);
       }
     };
-    6;
     window.addEventListener("scroll", handleScroll);
 
     return () => {
@@ -70,346 +70,235 @@ export default function Resume() {
     };
   }, []);
 
-  const languages = [
-    { name: "Python", icon: <SiPython /> },
-    { name: "TypeScript", icon: <SiTypescript /> },
-    { name: "JavaScript", icon: <SiJavascript /> },
-    { name: "C", icon: <SiC /> },
-    { name: "Java", icon: <FaJava /> },
-    { name: "Go", icon: <SiGo /> },
-    { name: "Terraform", icon: <SiTerraform /> },
-    { name: "Solidity", icon: <SiSolidity /> },
+  const skillCategories = [
+    {
+      title: "Languages & Databases",
+      icon: <FaLanguage className="text-3xl text-blue-400" />,
+      items: [
+        { name: "Python", icon: <SiPython /> },
+        { name: "TypeScript", icon: <SiTypescript /> },
+        { name: "JavaScript", icon: <SiJavascript /> },
+        { name: "C", icon: <SiC /> },
+        { name: "Java", icon: <FaJava /> },
+        { name: "Go", icon: <SiGo /> },
+        { name: "PostgreSQL", icon: <SiPostgresql /> },
+        { name: "MongoDB", icon: <SiMongodb /> },
+        { name: "Terraform", icon: <SiTerraform /> },
+        // { name: "Solidity", icon: <SiSolidity /> },
+      ],
+    },
+    {
+      title: "Frameworks",
+      icon: <MdFoundation className="text-3xl text-blue-400" />,
+      items: [
+        { name: "Node.js", icon: <FaNode /> },
+        { name: "Express", icon: <SiExpress /> },
+        { name: "Vue", icon: <FaVuejs /> },
+        { name: "Nuxt.js", icon: <SiNuxtdotjs /> },
+        { name: "React.js", icon: <SiReact /> },
+        { name: "Next.js", icon: <SiNextdotjs /> },
+        { name: "Flask", icon: <SiFlask /> },
+        { name: "Tailwind", icon: <SiTailwindcss /> },
+        { name: "Langchain", icon: <CiLink /> },
+
+      ],
+    },
+    {
+      title: "Tools & Platforms",
+      icon: <PiDotsThreeCircle className="text-3xl text-blue-400" />,
+      items: [
+        { name: "GCP", icon: <SiGooglecloud /> },
+        { name: "AWS", icon: <FaAws /> },
+        { name: "Azure", icon: <VscAzure /> },
+        { name: "Docker", icon: <SiDocker /> },
+        { name: "Git", icon: <SiGit /> },
+        { name: "REST", icon: <TbApi /> },
+        { name: "Jira", icon: <SiJira /> },
+        { name: "Claude Code", icon: <SiClaude /> },
+        // { name: "Networking", icon: <FaNetworkWired /> },
+      ],
+    },
   ];
-  const frameworks = [
-    { name: "Node.js", icon: <FaNode /> },
-    { name: "Express", icon: <SiExpress /> },
-    { name: "Vue.js", icon: <FaVuejs /> },
-    { name: "Nuxt.js", icon: <SiNuxtdotjs /> },
-    { name: "React.js", icon: <SiReact /> },
-    { name: "Next.js", icon: <SiNextdotjs /> },
-    { name: "Flask", icon: <SiFlask /> },
-    { name: "Tailwind", icon: <SiTailwindcss /> },
-    { name: "Cypress", icon: <SiCypress /> },
-    { name: "Hyperledger", icon: <CiLink /> },
-  ];
-  const otherSkills = [
-    { name: "MongoDB", icon: <SiMongodb /> },
-    { name: "PostgreSQL", icon: <SiPostgresql /> },
-    { name: "Docker", icon: <SiDocker /> },
-    { name: "Git", icon: <SiGit /> },
-    { name: "AWS", icon: <FaAws /> },
-    { name: "Azure", icon: <SiMicrosoftazure /> },
-    { name: "Google Cloud", icon: <SiGooglecloud /> },
-    { name: "REST", icon: <TbApi /> },
-    { name: "Jira", icon: <SiJira /> },
-    { name: "Networking", icon: <FaNetworkWired /> },
-  ];
+
+  // Prepare unified chronological timeline data
+  const timelineData = (resumeData as ResumeData[])
+    .filter((item) => ["Experience", "Education", "Volunteer"].includes(item.category))
+    .sort((a, b) => {
+      const getEpoch = (item: ResumeData) => {
+        if (!item.endDate || item.endDate.toLowerCase() === "present") return new Date().getTime();
+        const epoch = new Date(item.endDate).getTime();
+        if (isNaN(epoch)) return new Date(item.startDate).getTime();
+        return epoch;
+      };
+
+      const dateA = getEpoch(a);
+      const dateB = getEpoch(b);
+
+      if (isNaN(dateA) || isNaN(dateB)) {
+        const yearA = parseInt(a.years[0] || "0");
+        const yearB = parseInt(b.years[0] || "0");
+        return yearB - yearA;
+      }
+
+      if (dateB === dateA) {
+        const startA = new Date(a.startDate).getTime();
+        const startB = new Date(b.startDate).getTime();
+        return startB - startA;
+      }
+      return dateB - dateA;
+    });
 
   return (
-    <main className=" bg-slate-900">
-      <Navbar />
-      <LampContainer color="blue" className="-mb-1">
-        <h1 className="bg-gradient-to-b from-blue-500 to-slate-800 py-4 bg-clip-text text-center font-medium tracking-tight text-transparent text-7xl md:text-8xl">
-          Resume
-        </h1>
-        {/* <div className="justify-center">
-          <Button
-            className="border-2 border-blue-400 p-2 mt-8 text-slate-200 text-sm hover:bg-blue-700 -mb-14 rounded-md"
-            label="Download Resume"
-            onClick={() => window.open("/Bhavik-Naik-Resume.pdf", "_blank")}
-          />
-        </div> */}
-      </LampContainer>
-      <div className="container mx-auto -mt-10">
-        <div className="fixed right-0 bottom-16 flex flex-col gap-2">
-          {showScrollButton && (
-            <Button
-              icon={<FaArrowUp />}
-              aria-label="Scroll to top"
-              className="text-xl bg-blue-400 hover:bg-blue-500 text-slate-900 py-1  shadow-md"
-              onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-              tooltipOptions={{
-                position: "left",
-                mouseTrack: true,
+    <main className="bg-slate-900 relative min-h-screen">
+      <div className="relative z-10 w-full overflow-hidden">
+        <Navbar />
+        <LampContainer color="blue" className="-mb-1">
+          <h1 className="bg-gradient-to-b from-blue-500 to-slate-800 py-4 bg-clip-text text-center font-medium tracking-tight text-transparent text-7xl md:text-8xl">
+            Resume
+          </h1>
+        </LampContainer>
+
+        <div className="container mx-auto -mt-10 relative z-10 px-4 md:px-5">
+          <div className="fixed right-4 md:right-8 bottom-8 md:bottom-16 flex flex-col gap-2 z-50">
+            {showScrollButton && (
+              <Button
+                icon={<FaArrowUp />}
+                aria-label="Scroll to top"
+                className="text-xl bg-blue-400 hover:bg-blue-500 text-slate-900 py-2 shadow-lg rounded-full"
+                onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+                tooltipOptions={{ position: "left", mouseTrack: true }}
+                tooltip="Scroll to Top"
+              ></Button>
+            )}
+            {/* <Button
+              icon={<FaGears />}
+              size="large"
+              className="text-2xl bg-slate-800 text-blue-400 p-2 hover:bg-slate-700 rounded-full shadow-lg border border-slate-700"
+              tooltipOptions={{ position: "left", mouseTrack: true }}
+              tooltip="Skills"
+              onClick={() => {
+                document.querySelector("#skills")?.scrollIntoView({ behavior: "smooth", block: "start" });
               }}
-              tooltip="Scroll to Top"
-            ></Button>
-          )}
-          <Button
-            icon={<FaGears />}
-            size="large"
-            className="text-3xl bg-blue-400 text-slate-900 p-1 hover:bg-blue-500"
-            tooltipOptions={{
-              position: "left",
-              mouseTrack: true,
-            }}
-            tooltip="Skills"
-            onClick={() => {
-              document
-                .querySelector("#skills")
-                ?.scrollIntoView({ behavior: "smooth" });
-            }}
-          />
-          <Button
-            icon={<FaLightbulb />}
-            size="large"
-            className="text-2xl bg-blue-400 text-slate-900 p-1 hover:bg-blue-500"
-            tooltipOptions={{
-              position: "left",
-              mouseTrack: true,
-            }}
-            tooltip="Experience"
-            onClick={() => {
-              document
-                .querySelector("#experience")
-                ?.scrollIntoView({ behavior: "smooth" });
-            }}
-          />
-          <Button
-            icon={<FaGraduationCap />}
-            size="large"
-            className="text-2xl bg-blue-400 text-slate-900 p-1 hover:bg-blue-500"
-            tooltipOptions={{
-              position: "left",
-              mouseTrack: true,
-            }}
-            tooltip="Education"
-            onClick={() => {
-              document
-                .querySelector("#education")
-                ?.scrollIntoView({ behavior: "smooth" });
-            }}
-          />
-          <Button
-            icon={<FaHandsHelping />}
-            size="large"
-            className="text-2xl bg-blue-400 text-slate-900 p-1 hover:bg-blue-500"
-            tooltipOptions={{
-              position: "left",
-              mouseTrack: true,
-            }}
-            tooltip="Volunteer"
-            onClick={() => {
-              document
-                .querySelector("#volunteer")
-                ?.scrollIntoView({ behavior: "smooth" });
-            }}
-          />
-        </div>
-        <div className="flex justify-center gap-4">
-          <Button
-            icon={<FaGears />}
-            className="text-2xl bg-blue-400 text-slate-900 p-2 hover:bg-blue-500"
-            onClick={() => {
-              document
-                .querySelector("#skills")
-                ?.scrollIntoView({ behavior: "smooth" });
-            }}
-          />
-          <Button
-            icon={<FaLightbulb />}
-            className="text-2xl bg-blue-400 text-slate-900 p-2 hover:bg-blue-500"
-            onClick={() => {
-              document
-                .querySelector("#experience")
-                ?.scrollIntoView({ behavior: "smooth" });
-            }}
-          />
-          <Button
-            icon={<FaGraduationCap />}
-            className="text-2xl bg-blue-400 text-slate-900 p-2 hover:bg-blue-500"
-            onClick={() => {
-              document
-                .querySelector("#education")
-                ?.scrollIntoView({ behavior: "smooth" });
-            }}
-          />
-          <Button
-            icon={<FaHandsHelping />}
-            className="text-2xl bg-blue-400 text-slate-900 p-2 hover:bg-blue-500"
-            onClick={() => {
-              document
-                .querySelector("#volunteer")
-                ?.scrollIntoView({ behavior: "smooth" });
-            }}
-          />
-        </div>
-        <h1 id="skills" className="text-3xl text-slate-300 my-10 font-bold ">
-          Skills
-        </h1>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-          <Card
-            className="shadow-lg rounded-2xl bg-slate-800 hover:bg-slate-900 "
-            pt={{
-              body: {
-                className: "p-5 py-0",
-              },
-            }}
-          >
-            <div className="flex flex-col items-center mb-5">
-              <FaLanguage className="text-5xl text-blue-400 mb-2" />
-              <h1 className="text-center text-xl font-bold">Languages</h1>
-            </div>
-            <div className="grid grid-cols-2 gap-x-4 gap-y-2 w-full">
-              {languages.map((language, index) => (
-                <div
-                  key={index}
-                  className="flex items-center justify-between mb-3 text-lg"
-                >
-                  {index % 2 === 0 ? (
-                    <>
-                      <span className="text-right flex-1 mr-4">
-                        {language.name}
-                      </span>
-                      <span className="text-blue-400 text-xl">
-                        {language.icon}
-                      </span>
-                    </>
-                  ) : (
-                    <>
-                      <span className="text-blue-400 text-xl ">
-                        {language.icon}
-                      </span>
-                      <span className="text-left flex-1 ml-4">
-                        {language.name}
-                      </span>
-                    </>
-                  )}
+            />
+            <Button
+              icon={<FaLightbulb />}
+              size="large"
+              className="text-2xl bg-slate-800 text-blue-400 p-2 hover:bg-slate-700 rounded-full shadow-lg border border-slate-700"
+              tooltipOptions={{ position: "left", mouseTrack: true }}
+              tooltip="Timeline"
+              onClick={() => {
+                document.querySelector("#timeline")?.scrollIntoView({ behavior: "smooth", block: "start" });
+              }}
+            /> */}
+          </div>
+
+          {/* Skills Section */}
+          <h1 id="skills" className="text-3xl text-slate-300 mb-8 font-bold scroll-mt-24 text-center md:text-left">
+            Skills
+          </h1>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-15 z-20 relative">
+            {skillCategories.map((category, catIdx) => (
+              <motion.div
+                key={category.title}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: catIdx * 0.1 }}
+                className="relative flex flex-col items-center p-2 lg:p-2 bg-slate-800/40 rounded-2xl border border-slate-700/50 backdrop-blur-md hover:bg-slate-800/60 hover:border-slate-500/50 transition-all group shadow-xl mx-5 md:mx-0"
+              >
+                <div className="absolute inset-0 bg-gradient-to-b from-blue-500/5 to-transparent opacity-0 group-hover:opacity-100 rounded-[2rem] transition-opacity duration-500 pointer-events-none" />
+
+                <div className="flex flex-col items-center mb-6 mt-2 relative z-10 w-full">
+                  <div className="flex items-center gap-3">
+                    <div className="p-2.5 bg-slate-900/50 rounded-xl group-hover:scale-110 group-hover:-translate-y-0.5 transition-all duration-300 shadow-inner flex items-center justify-center">
+                      {category.icon}
+                    </div>
+                    <h2 className="text-lg lg:text-xl font-bold text-slate-100 tracking-wide">
+                      {category.title}
+                    </h2>
+                  </div>
+                  <div className="h-1 w-12 bg-blue-500/50 rounded-full mt-4 group-hover:w-24 group-hover:bg-blue-400 transition-all duration-300" />
                 </div>
-              ))}
-            </div>
-          </Card>
-          <Card
-            className=" shadow-lg rounded-2xl bg-slate-800 hover:bg-slate-900 "
-            pt={{
-              body: {
-                className: "p-5 py-0",
-              },
-            }}
-          >
-            <div className="flex flex-col items-center justify-center my-auto mb-5">
-              <MdFoundation className="text-5xl text-blue-400 mb-2" />
-              <h1 className="text-center text-xl font-bold">Frameworks</h1>
-            </div>
-            <div className="grid grid-cols-2 gap-x-4 gap-y-2 w-full">
-              {frameworks.map((language, index) => (
-                <div
-                  key={index}
-                  className="flex items-center justify-between mb-3 text-lg"
-                >
-                  {index % 2 === 0 ? (
-                    <>
-                      <span className="text-right flex-1 mr-4">
-                        {language.name}
+
+                <div className="flex flex-wrap justify-center gap-3 w-full relative z-10">
+                  {category.items.map((skill, index) => (
+                    <div
+                      key={index}
+                      className="flex items-center gap-2.5 px-3 py-1.5 bg-slate-900/80 rounded-full border border-slate-700/50 text-slate-300 text-sm md:text-base hover:text-white hover:border-blue-500/50 hover:bg-slate-800 transition-all shadow-sm hover:shadow-blue-500/20 cursor-default"
+                    >
+                      <span className="text-blue-400 text-lg transition-transform group-hover:scale-110">
+                        {skill.icon}
                       </span>
-                      <span className="text-blue-400 text-xl">
-                        {language.icon}
-                      </span>
-                    </>
-                  ) : (
-                    <>
-                      <span className="text-blue-400 text-xl ">
-                        {language.icon}
-                      </span>
-                      <span className="text-left flex-1 ml-4">
-                        {language.name}
-                      </span>
-                    </>
-                  )}
+                      <span className="font-medium text-sm">{skill.name}</span>
+                    </div>
+                  ))}
                 </div>
-              ))}
-            </div>
-          </Card>
-          <Card
-            className=" shadow-lg rounded-2xl bg-slate-800 hover:bg-slate-900 "
-            pt={{
-              body: {
-                className: "p-5 py-0",
-              },
-            }}
-          >
-            <div className="flex flex-col items-center justify-center my-auto mb-5">
-              <PiDotsThreeCircle className="text-5xl text-blue-400 mb-2 mt-0.5" />
-              <h1 className="text-center text-xl font-bold">Other</h1>
-            </div>
-            <div className="grid grid-cols-2 gap-x-4 gap-y-2 w-full">
-              {otherSkills.map((language, index) => (
-                <div
-                  key={index}
-                  className="flex items-center justify-between mb-3 text-lg"
-                >
-                  {index % 2 === 0 ? (
-                    <>
-                      <span className="text-right flex-1 mr-4">
-                        {language.name}
-                      </span>
-                      <span className="text-blue-400 text-xl">
-                        {language.icon}
-                      </span>
-                    </>
-                  ) : (
-                    <>
-                      <span className="text-blue-400 text-xl ">
-                        {language.icon}
-                      </span>
-                      <span className="text-left flex-1 ml-4">
-                        {language.name}
-                      </span>
-                    </>
-                  )}
+              </motion.div>
+            ))}
+          </div>
+
+          {/* Timeline Section */}
+          <h1 id="timeline" className="text-3xl text-slate-300 mb-12 font-bold scroll-mt-24 text-center md:text-left">
+            Career Timeline
+          </h1>
+
+          <div className="relative w-full max-w-5xl mx-auto pb-5 z-20">
+            {/* The Vertical Line */}
+            {/* Desktop Line (Center) */}
+            <div className="hidden md:block absolute left-1/2 transform -translate-x-1/2 h-full border-l-[3px] border-slate-700/50"></div>
+            {/* Mobile Line (Left) */}
+            <div className="md:hidden absolute left-5 h-full border-l-[3px] border-slate-700/50"></div>
+
+            {timelineData.map((item, index) => {
+              const isEven = index % 2 === 0;
+
+              // Dot colors based on category
+              let dotColor = "bg-rose-400 border-rose-900";
+              if (item.category === "Education") {
+                dotColor = "bg-amber-400 border-amber-900";
+              }
+              if (item.category === "Volunteer") {
+                dotColor = "bg-emerald-400 border-emerald-900";
+              }
+
+              return (
+                <div key={index} className="relative flex items-center justify-between w-full mb-5 md:mb-0">
+                  {/* Desktop Right Alignment Spacing */}
+                  {!isEven && <div className="hidden md:block w-5/12"></div>}
+
+                  {/* The Card */}
+                  <div className={`w-full md:w-[45%] pl-14 pr-4 md:px-0 ${isEven ? 'md:mr-auto' : 'md:ml-auto'}`}>
+                    <ResumeCards data={item} type={item.category} />
+                  </div>
+
+                  {/* Desktop Left Alignment Spacing */}
+                  {isEven && <div className="hidden md:block w-5/12"></div>}
+
+                  {/* The Timeline Dot */}
+                  <div className={`absolute left-5 md:left-1/2 flex items-center justify-center w-6 h-6 rounded-full border-[3px] transform -translate-x-1/2 shadow-lg ${dotColor} z-10 top-6 md:top-1/2 md:-translate-y-1/2`}>
+                    {/* {dotIcon} */}
+                  </div>
                 </div>
-              ))}
-            </div>
-          </Card>
+              );
+            })}
+          </div>
+
         </div>
 
-        <h1
-          id="experience"
-          className="text-3xl text-slate-300 my-10 font-bold "
-        >
-          Experience
-        </h1>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 z-50">
-          {resumeData
-            .filter((item) => item.category === "Experience")
-            .map((item, index) => (
-              <ResumeCards key={index} data={item} type={"Experience"} />
-            ))}
+        {/* Background Elements */}
+        <div className="fixed inset-0 z-0 pointer-events-none">
+          <ShootingStars
+            maxDelay={9000}
+            minDelay={4000}
+            starColor={"#3b82f6"}
+            trailColor="#3b82f6"
+            starWidth={15}
+            starHeight={2}
+            maxSpeed={30}
+          />
+          <StarsBackground starDensity={0.0005} />
         </div>
-        <h1 id="education" className="text-3xl text-slate-300 my-10 font-bold ">
-          Education
-        </h1>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-4">
-          {resumeData
-            .filter((item) => item.category === "Education")
-            .map((item, index) => (
-              <ResumeCards key={index} data={item} type={"Education"} />
-            ))}
-        </div>
-        <h1 id="volunteer" className="text-3xl text-slate-300 my-10 font-bold ">
-          Volunteer Experiences
-        </h1>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-4 mb-10">
-          {resumeData
-            .filter((item) => item.category === "Volunteer")
-            .map((item, index) => (
-              <ResumeCards key={index} data={item} type={"Education"} />
-            ))}
-        </div>
-      </div>
-      <div className="fixed inset-0 -z-1 pointer-events-none">
-        <ShootingStars
-          maxDelay={9000}
-          minDelay={4000}
-          starColor={"#3b82f6"}
-          trailColor="#3b82f6"
-          starWidth={15}
-          starHeight={2}
-          maxSpeed={30}
-        />
-        <StarsBackground starDensity={0.0005} />
-      </div>
-      <div className="z-50">
+
         <Footer />
       </div>
     </main>

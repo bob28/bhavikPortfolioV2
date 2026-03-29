@@ -1,7 +1,5 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
+@import "tailwindcss";
+@config "../tailwind.config.ts";
 @layer base {
   :root {
     --background: 0 0% 100%;
@@ -65,5 +63,34 @@
   }
   body {
     @apply bg-background text-foreground;
+  }
+}
+
+@keyframes meteor {
+  0% {
+    transform: rotate(215deg) translateX(0);
+    opacity: 1;
+  }
+  70% {
+    opacity: 1;
+  }
+  100% {
+    transform: rotate(215deg) translateX(-500px);
+    opacity: 0;
+  }
+}
+
+.animate-meteor-effect {
+  animation: meteor 5s linear infinite;
+}
+
+@keyframes galleryFadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
