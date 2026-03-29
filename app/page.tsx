@@ -470,7 +470,7 @@ export default function Home() {
 
             <div className="font-normal text-base text-slate-200 mb-4 relative ">
               <ul>
-                <li>3 years of development experience</li>
+                <li>5 years of development experience</li>
                 <li>Master of I.T Security in AI</li>
                 <li>Enactus alumni</li>
                 <li>Photographer & tennis player</li>
@@ -481,6 +481,24 @@ export default function Home() {
               className="border border-green-400 p-2 hover:bg-green-400 hover:text-slate-800"
               label="My Resume"
               onClick={() => (window.location.href = "/resume")}
+            />
+
+            <Meteors number={17} />
+          </div>
+          <div className="relative shadow-xl text-center align-middle justify-center bg-slate-800 border border-gray-800 px-5 py-6 h-full overflow-hidden rounded-2xl flex flex-col items-center">
+            <FaCamera className="text-green-400 text-5xl mb-4 text-center " />
+            <h1 className="font-bold text-xl text-white mb-4 relative ">
+              Photography
+            </h1>
+
+            <div className="font-normal text-base text-slate-200 mb-4 relative ">
+              Explore my photography portfolio, featuring automotive, sports, and professional events. I also capture cinematic cityscapes and landscapes.
+            </div>
+
+            <Button
+              className="border border-green-400 p-2 hover:bg-green-400 hover:text-slate-800"
+              label="Photography"
+              onClick={() => (window.location.href = "/photography")}
             />
 
             <Meteors number={17} />
@@ -501,25 +519,6 @@ export default function Home() {
               className="border border-green-400 p-2 hover:bg-green-400 hover:text-slate-800"
               label="View Github"
               onClick={() => window.open("https://github.com/bob28")}
-            />
-
-            <Meteors number={17} />
-          </div>
-          <div className="relative shadow-xl text-center align-middle justify-center bg-slate-800 border border-gray-800 px-5 py-6 h-full overflow-hidden rounded-2xl flex flex-col items-center">
-            <FaCamera className="text-green-400 text-5xl mb-4 text-center " />
-            <h1 className="font-bold text-xl text-white mb-4 relative ">
-              Photography
-            </h1>
-
-            <div className="font-normal text-base text-slate-200 mb-4 relative ">
-              Explore my portfolio of freelance car photography projects. I also
-              specialize in sports and event photography.
-            </div>
-
-            <Button
-              className="border border-green-400 p-2 hover:bg-green-400 hover:text-slate-800"
-              label="Photography"
-              onClick={() => (window.location.href = "/photography")}
             />
 
             <Meteors number={17} />
@@ -560,8 +559,7 @@ export default function Home() {
             </h1>
             <div className="font-normal text-base text-slate-200 mb-4 relative  flex flex-col gap-4">
               <p className="px-5 md:px-52">
-                I'm actively seeking new opportunities, so please don't hesitate{" "}
-                to reach out to me or simply say hello!
+                I&apos;m actively seeking new opportunities in software engineering and am currently accepting bookings for photography and events. Please don&apos;t hesitate to reach out to me or simply say hello!
               </p>
               <div>
                 <div className="font-bold mb-1">Email</div>

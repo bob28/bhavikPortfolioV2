@@ -1,0 +1,188 @@
+"use client";
+
+import React, { useState, useEffect, useRef, useCallback, useMemo } from "react";
+import Image from "next/image";
+import { RowsPhotoAlbum, RenderImageProps, RenderImageContext } from "react-photo-album";
+import "react-photo-album/rows.css";
+
+import Lightbox from "yet-another-react-lightbox";
+import "yet-another-react-lightbox/styles.css";
+
+// import optional lightbox plugins
+import Captions from "yet-another-react-lightbox/plugins/captions";
+import "yet-another-react-lightbox/plugins/captions.css";
+
+const BATCH_SIZE = 12;
+
+interface Photo {
+  src: string;
+  category: string;
+  width: number;
+  height: number;
+}
+
+interface PhotographyGalleryProps {
+  photos: Photo[];
+}
+
+// Extend the Photo type for react-photo-album
+interface GalleryPhoto {
+  src: string;
+  width: number;
+  height: number;
+  title?: string;
+  description?: string;
+  category: string;
+}
+
+export const PhotographyGallery = ({ photos }: PhotographyGalleryProps) => {
+  const [index, setIndex] = useState(-1);
+  const [visibleCount, setVisibleCount] = useState(BATCH_SIZE);
+  const sentinelRef = useRef<HTMLDivElement | null>(null);
+
+  // Prepare photos for PhotoAlbum and Lightbox
+  const albumPhotos = useMemo<GalleryPhoto[]>(() => 
+    photos.map((photo) => ({
+      src: photo.src.startsWith("/") ? photo.src : `/${photo.src}`,
+      width: photo.width,
+      height: photo.height,
+      title: photo.category,
+      description: `${photo.width}x${photo.height}`,
+      category: photo.category,
+    })),
+    [photos]
+  );
+
+  const visiblePhotos = albumPhotos.slice(0, visibleCount);
+  const hasMore = visibleCount < albumPhotos.length;
+
+  // Intersection observer to load more photos as user scrolls
+  const observerCallback = useCallback(
+    (entries: IntersectionObserverEntry[]) => {
+      if (entries[0]?.isIntersecting && hasMore) {
+        setVisibleCount((prev) => Math.min(prev + BATCH_SIZE, albumPhotos.length));
+      }
+    },
+    [hasMore, albumPhotos.length]
+  );
+
+  useEffect(() => {
+    const sentinel = sentinelRef.current;
+    if (!sentinel) return;
+
+    const observer = new IntersectionObserver(observerCallback, {
+      rootMargin: "400px",
+    });
+
+    observer.observe(sentinel);
+
+    return () => {
+      observer.disconnect();
+    };
+  }, [observerCallback]);
+
+  // Custom renderer for images to use next/image and add hover effects
+  const renderImage = useCallback((
+    { alt, title, sizes, className, onClick }: RenderImageProps,
+    { photo, width, height }: RenderImageContext<GalleryPhoto>
+  ) => (
+    <div
+      style={{
+        width: "100%",
+        position: "relative",
+        aspectRatio: `${width} / ${height}`,
+      }}
+      className="group cursor-pointer overflow-hidden rounded-xl border border-white/5 bg-slate-900/40"
+      onClick={onClick}
+    >
+      <Image
+        fill
+        src={photo.src}
+        alt={alt || "Photography"}
+        title={title}
+        sizes={sizes}
+        className="object-cover transition-transform duration-500 group-hover:scale-105"
+        loading="lazy"
+      />
+      {/* Overlay */}
+      <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center pointer-events-none z-10">
+        <span className="text-white text-xs font-medium px-4 py-2 border border-white/40 rounded-full backdrop-blur-sm scale-90 group-hover:scale-100 transition-all duration-300">
+          View Full
+        </span>
+      </div>
+
+    </div>
+  ), []);
+
+  return (
+    <div className="w-full" style={{ animation: "galleryFadeUp 0.6s ease-out both" }}>
+      <RowsPhotoAlbum
+        photos={visiblePhotos}
+        targetRowHeight={(containerWidth) => {
+          if (containerWidth < 640) return 300;
+          if (containerWidth < 768) return 350;
+          if (containerWidth < 1024) return 375;
+          return 375;
+        }}
+        spacing={5}
+        onClick={({ index }) => setIndex(index)}
+        render={{ image: renderImage }}
+      />
+
+      <Lightbox
+        slides={index >= 0 ? [albumPhotos[index]] : []}
+        open={index >= 0}
+        close={() => setIndex(-1)}
+        plugins={[Captions]}
+        controller={{
+          closeOnBackdropClick: true,
+        }}
+        on={{
+          click: () => setIndex(-1),
+        }}
+        render={{
+          buttonPrev: () => null,
+          buttonNext: () => null,
+        }}
+      />
+
+      {/* Sentinel element that triggers loading more photos */}
+      {hasMore ? (
+        <div ref={sentinelRef} className="flex justify-center py-10 mt-6">
+          <div className="flex items-center gap-2 text-slate-400">
+            <svg
+              className="animate-spin h-5 w-5"
+              viewBox="0 0 24 24"
+              fill="none"
+            >
+              <circle
+                className="opacity-25"
+                cx="12"
+                cy="12"
+                r="10"
+                stroke="currentColor"
+                strokeWidth="4"
+              />
+              <path
+                className="opacity-75"
+                fill="currentColor"
+                d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z"
+              />
+            </svg>
+            <span className="text-sm">Loading more photos...</span>
+          </div>
+        </div>
+      ) : (
+        photos.length > 0 && (
+          <div className="text-center my-10 text-slate-500 text-sm">
+            Showing all {photos.length} photos
+          </div>
+        )
+      )}
+    </div>
+  );
+};
+
+
+
+

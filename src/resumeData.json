@@ -1,20 +1,20 @@
 [
   {
     "category": "Experience",
-    "name": "Senior Full Stack Developer",
+    "name": "Senior Full Stack Software Engineer",
     "company": "TELUS",
     "location": "Toronto, ON",
     "startDate": "Jan 2025",
     "endDate": "Present",
-    "years": ["2025"],
-    "skills": [
+    "techStack": [
       "TypeScript",
-      "JavaScript",
-      "Node.js",
-      "React.js",
-      "Palantir Foundry"
+      "Python",
+      "Node",
+      "React",
+      "PostgreSQL",
+      "GCP"
     ],
-    "summary": "Created GenAI models for internal tooling. Built full stack applications with TypeScript, React, and Node.js. Deployed app infrastructure to Google Cloud with Terraform.",
+    "summary": "Delivered 5+ full stack AI apps on GCP for 30k users, driving $9M+ in value. Architected scalable RAG workflows, robust cloud infrastructure, and secure identity systems.",
     "description": [
       "Overhauled the project department at an energy software startup by introducing frameworks to standardize timelines, pricing, documentation, and customer communication processes, reducing project management overhead by 40%",
       "Mentored 2 junior developers to enhance their analytical skills, fostering collaboration and lifting team productivity",
@@ -26,23 +26,18 @@
   },
   {
     "category": "Experience",
-    "name": "Senior Full Stack Developer",
+    "name": "Senior Full Stack Software Engineer",
     "company": "Forged Operations",
     "location": "Toronto, ON",
     "startDate": "Apr 2024",
     "endDate": "Dec 2024",
-    "years": ["2024"],
-    "skills": [
+    "techStack": [
       "TypeScript",
-      "JavaScript",
-      "Node.js",
-      "Vue.js",
+      "Node",
+      "Nuxt",
+      "Vue",
       "MongoDB",
-      "MS SQL",
-      "Azure",
-      "Express.js",
-      "Nuxt.js",
-      "Cypress"
+      "Azure"
     ],
     "summary": "Led the project department at an energy software startup. Mentored junior developers, built an authentication module and an AI chatbot.",
     "description": [
@@ -56,12 +51,11 @@
   },
   {
     "category": "Experience",
-    "name": "Full Stack Developer",
+    "name": "Full Stack Software Engineer",
     "company": "Forged Operations",
     "location": "Toronto, ON",
     "startDate": "May 2023",
     "endDate": "Apr 2024",
-    "years": ["2023", "2024"],
     "summary": "Developed and maintained multiple web applications used by 120,000+ users daily utilizing TypeScript, Vue, Node.js, Nuxt, and MongoDB.",
     "description": [
       "Engineered full-stack SaaS applications for 120,000+ users using TypeScript, ensuring reliability in large-scale systems",
@@ -70,6 +64,14 @@
       "Cut production bugs by 25% and strengthened app stability through Cypress unit tests and functional end-user testing",
       "Investigated 20+ cutting-edge technologies, presented findings, and integrated them into the team’s technology stack",
       "Coordinated code reviews and sign-offs while contributing to Agile sprints and CI/CD, achieving timely MVP delivery"
+    ],
+    "techStack": [
+      "TypeScript",
+      "Node",
+      "Vue",
+      "Nuxt",
+      "MongoDB",
+      "Azure"
     ]
   },
   {
@@ -78,8 +80,9 @@
     "company": "Ontario Tech University",
     "startDate": "Sep 2021",
     "endDate": "Oct 2022",
-    "years": ["2021", "2022"],
-    "description": ["Graduated with a 4.15 / 4.3 GPA"],
+    "description": [
+      "Graduated with a 4.15 / 4.3 GPA"
+    ],
     "location": "Oshawa, ON",
     "summary": "GPA: 4.15 / 4.3"
   },
@@ -90,26 +93,36 @@
     "location": "Newmarket, ON",
     "startDate": "May 2022",
     "endDate": "Aug 2022",
-    "years": ["2022"],
     "summary": "Mapped security vulnerabilities, created Python scripts, launched a hosting app, and used Terraform to create GCP environments",
     "description": [
       "Produced Python scripts to examine and clean up client data, resulting in a 20% increase in Plesk server performance",
       "Migrated existing on-premise infrastructure to GCP using Terraform, cutting costs by 30% and improving scalability"
+    ],
+    "techStack": [
+      "Python",
+      "Terraform",
+      "GCP",
+      "Plesk"
     ]
   },
   {
     "category": "Experience",
-    "name": "Frontend Developer",
+    "name": "Frontend Software Developer",
     "company": "MobileXCo",
     "location": "Remote",
     "startDate": "Jul 2020",
     "endDate": "Sep 2021",
-    "years": ["2020", "2021"],
-    "summary": "Created, styled, and tested numerous promotional websites for Canadian businesses such as Tim Hortons and Royale",
+    "summary": "Constructed high-traffic sweepstake platforms for 50k+ users, driving engagement through optimized JS/CSS. Improved performance by 70% via strategic asset tuning.",
     "description": [
       "Constructed sweepstake websites with JavaScript and CSS, attracting 50,000+ users, bolstering brand engagement",
       "Accelerated site loading times by 70% through code optimization and image compression, enhancing user retention",
       "Streamlined collaboration through cross-functional Agile SDLC, meeting client deadlines and exceeding satisfaction"
+    ],
+    "techStack": [
+      "JavaScript",
+      "HTML/CSS",
+      "Node",
+      "SQL"
     ]
   },
   {
@@ -117,8 +130,7 @@
     "name": "Bachelor of I.T (Hons) - Networking & I.T Security",
     "company": "Ontario Tech University",
     "startDate": "Sep 2018",
-    "endDate": "Apr 2021",
-    "years": ["2018", "2019", "2020", "2021"],
+    "endDate": "May 2021",
     "description": [
       "Graduated with a 3.71 / 4.3 GPA, specializing in Networking and I.T Security",
       "President's Award (4x), Dean's Award (1x)"
@@ -131,7 +143,6 @@
     "name": "IBM Data Analyst Specialization",
     "company": "Coursera Certification",
     "startDate": "Feb 2023",
-    "years": ["2023"],
     "url": "https://www.coursera.org/account/accomplishments/specialization/certificate/53DTZQXTE9N7",
     "summary": "Performed data analysis, visualization, and reporting using Python and SQL"
   },
@@ -140,7 +151,6 @@
     "name": "Google Data Analytics Specialization",
     "company": "Coursera Certification",
     "startDate": "Jan 2023",
-    "years": ["2023"],
     "url": "https://www.coursera.org/account/accomplishments/specialization/certificate/L3X5HKKDFER5",
     "summary": "Used R to visualize and analyze data points"
   },
@@ -150,8 +160,7 @@
     "company": "Enactus Ontario Tech ",
     "location": "Oshawa, ON",
     "startDate": "Jul 2020",
-    "endDate": "May 2021",
-    "years": ["2020", "2021"],
+    "endDate": "April 2021",
     "summary": "Directed a team of 5 individuals to create interactive online workshops that inspired students to learn new skills",
     "description": [
       "Led a team of 5 to develop interactive workshops with 20+ guest speakers, managing all facets including finances and competition strategy",
@@ -166,7 +175,6 @@
     "location": "Oshawa, ON",
     "startDate": "Sep 2019",
     "endDate": "Apr 2020",
-    "years": ["2019, 2020"],
     "summary": "Conducted 300+ tutoring sessions in math and programming, imparting problem-solving and study strategies",
     "description": [
       "Courses: Computer Science 1, Calculus 1, Database Systems, OOP Programming, Computer Security, Advanced Networking, and Web & Script Programming"
@@ -175,14 +183,17 @@
   {
     "category": "Experience",
     "name": "Blockchain Developer Intern",
-    "company": "Ontario Tech University",
-    "location": "Oshawa, ON",
+    "company": "WiLAN Labs",
+    "location": "Remote",
     "startDate": "May 2020",
     "endDate": "Jul 2020",
-    "years": ["2020"],
     "summary": "Researched. evaluated. and developed a blockchain network with smart contracts using Hyperledger Fabric",
     "description": [
       "Explored, devised, and crafted a Hyperledger network for patent storage with smart contracts in Go, earning approval"
+    ],
+    "techStack": [
+      "Go",
+      "Hyperledger Fabric"
     ]
   },
   {
@@ -192,7 +203,6 @@
     "location": "Oshawa, ON",
     "startDate": "Sep 2019",
     "endDate": "May 2020",
-    "years": ["2019", "2020"],
     "summary": "Operated the Enactus Ontario Tech social media accounts",
     "description": [
       "Managed Enactus Ontario Tech's marketing team across all platforms and improved engagement across projects by over 1000% ",
@@ -206,10 +216,15 @@
     "location": "Mississauga, ON",
     "startDate": "May 2018",
     "endDate": "Aug 2018",
-    "years": ["2018"],
     "summary": "Designed and developed a fully-fledged Android and iOS application for the Kloudville software using Apache Cordova",
     "description": [
       "Blueprinted and programmed an Android/iOS app with Cordova for inventory management, securing 10 new clients"
+    ],
+    "techStack": [
+      "JavaScript",
+      "HTML/CSS",
+      "Node",
+      "Cordova"
     ]
   },
   {
@@ -219,10 +234,13 @@
     "location": "Mississauga, ON",
     "startDate": "May 2017",
     "endDate": "Aug 2017",
-    "years": ["2020"],
     "summary": "Built and tested webpages and applications for clients using JavaScript and jQuery",
     "description": [
       "Tested websites and resolved issues in client apps, partnering with a PM to deliver features on time and within scope"
+    ],
+    "techStack": [
+      "JavaScript",
+      "HTML/CSS"
     ]
   }
 ]

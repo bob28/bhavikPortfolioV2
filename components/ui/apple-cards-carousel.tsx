@@ -9,7 +9,7 @@ import { ShootingStars } from "./shooting-stars";
 import { StarsBackground } from "./stars-background";
 
 interface CarouselProps {
-  items: JSX.Element[];
+  items: React.ReactNode[];
   initialScroll?: number;
 }
 
