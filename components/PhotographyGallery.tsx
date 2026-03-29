@@ -98,37 +98,37 @@ export const PhotographyGallery = ({ photos }: PhotographyGalleryProps) => {
   // Custom renderer for images to use next/image and add hover effects
   const renderImage = useCallback((
     { alt, title, sizes, className, onClick, style }: RenderImageProps,
-    { photo, width, height }: RenderImageContext<GalleryPhoto>
-  ) => (
-    <div
-      style={{
-        ...style,
-        width: "100%",
-        position: "relative",
-        aspectRatio: `${width} / ${height}`,
-      }}
-      className="group cursor-pointer overflow-hidden rounded-xl border border-white/5 bg-slate-900/40"
-      onClick={onClick}
-    >
-      <Image
-        fill
-        src={photo.src}
-        alt={alt || "Photography"}
-        title={title}
-        sizes={sizes}
-        className="object-cover transition-transform duration-500 group-hover:scale-105"
-        loading="lazy"
-        decoding="async"
-      />
-      {/* Overlay */}
-      <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center pointer-events-none z-10">
-        <span className="text-white text-xs font-medium px-4 py-2 border border-white/40 rounded-full backdrop-blur-sm scale-90 group-hover:scale-100 transition-all duration-300">
-          View Full
-        </span>
-      </div>
+    { photo, width, height, index }: RenderImageContext<GalleryPhoto>
+  ) => {
+    // The first few rows of images are heavily impacting LCP, make them priority
+    const isPriority = index < 6;
 
-    </div>
-  ), []);
+    return (
+      <div
+        style={{
+          ...style,
+          width: "100%",
+          position: "relative",
+          aspectRatio: `${width} / ${height}`,
+        }}
+        className="group cursor-pointer overflow-hidden rounded-xl bg-slate-900/40 border border-white/5"
+        onClick={onClick}
+      >
+        <Image
+          fill
+          src={photo.src}
+          alt={alt || "Photography"}
+          title={title}
+          sizes={sizes}
+          className="object-cover transition-transform duration-500 group-hover:scale-105"
+          priority={isPriority}
+          loading={isPriority ? "eager" : "lazy"}
+          decoding={isPriority ? "auto" : "async"}
+          fetchPriority={isPriority ? "high" : "auto"}
+        />
+      </div>
+    );
+  }, []);
 
   return (
     <div className="w-full" style={{ animation: "galleryFadeUp 0.6s ease-out both" }}>
