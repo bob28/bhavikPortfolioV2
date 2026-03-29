@@ -87,7 +87,7 @@ export const PhotographyClient = ({
             initial={{ opacity: 0, y: 5 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.35, ease: "easeOut" }}
-            className="text-slate-400 text-sm leading-relaxed mb-8 -mt-5 text-center"
+            className="text-slate-400 text-sm leading-relaxed mb-8 -mt-4 text-center"
           >
             {categoryDescriptions[activeCategory]}
           </motion.p>

@@ -18,8 +18,8 @@ export const CategoryFilter = ({
   photoCounts,
 }: CategoryFilterProps) => {
   return (
-    <div className=" text-center p-4 md:p-5 mb-8">
-      <div className="flex flex-wrap justify-center gap-2.5">
+    <div className="text-center px-4 md:px-6 mb-10">
+      <div className="flex flex-wrap justify-center gap-3 md:gap-4">
         {categories.map((category) => {
           const isActive =
             activeCategory.toLowerCase() === category.toLowerCase();
@@ -30,44 +30,51 @@ export const CategoryFilter = ({
               key={category}
               onClick={() => setActiveCategory(category)}
               className={cn(
-                "relative flex items-center gap-2.5 px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 border",
+                "group relative flex items-center gap-3 px-5 py-2.5 rounded-full text-sm font-semibold transition-all duration-500",
+                "border overflow-hidden backdrop-blur-md",
                 isActive
-                  ? "text-white border-red-500/40 shadow-[0_0_16px_rgba(244,63,94,0.15)]"
-                  : "text-slate-300 border-slate-500/50 bg-slate-900/30 hover:text-slate-200 hover:border-slate-600/60 hover:bg-slate-800/40"
+                  ? "text-white border-red-500/50 shadow-[0_0_20px_rgba(244,63,94,0.2)]"
+                  : "text-slate-400 border-slate-800/60 bg-slate-950/40 hover:text-slate-200 hover:border-slate-700/80 hover:bg-slate-900/60"
               )}
             >
-              {/* Active background — strong red on left, fades to transparent */}
+              {/* Active Background - Glassy Red Gradient */}
               {isActive && (
                 <motion.div
-                  layoutId="active-pill"
-                  className="absolute inset-0 rounded-full bg-gradient-to-r from-red-700/60 via-red-600/30 to-red-500/10"
-                  transition={{ type: "spring", bounce: 0.2, duration: 0.6 }}
+                  layoutId="active-pill-background"
+                  className="absolute inset-0 bg-gradient-to-br from-red-600/30 via-red-500/10 to-transparent"
+                  transition={{ type: "spring", bounce: 0.25, duration: 0.6 }}
                 />
               )}
 
-              {/* Top gloss highlight on active pill */}
-              {isActive && (
-                <div className="absolute inset-x-2 top-0 h-px bg-gradient-to-r from-transparent via-red-300/30 to-transparent pointer-events-none" />
+              {/* Inactive Hover Glow */}
+              {!isActive && (
+                <div className="absolute inset-0 bg-gradient-to-r from-red-500/0 via-red-500/5 to-red-500/0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-sm pointer-events-none" />
               )}
 
-              <span className="relative z-10 tracking-wide">{category}</span>
+              <span className="relative z-10 tracking-tight">{category}</span>
 
-              {/* Count badge */}
+              {/* Count Badge — High Fidelity Pill */}
               <span
                 className={cn(
-                  "relative z-10 min-w-[1.4rem] text-center text-[11px] px-1.5 py-px rounded-md tabular-nums font-semibold leading-5",
+                  "relative z-10 flex items-center justify-center min-w-[1.6rem] h-5 px-2 py-0.5 rounded-full text-[11px] tabular-nums font-bold transition-all duration-300",
                   isActive
                     ? [
-                      "bg-gradient-to-b from-red-400/30 to-red-600/20",
-                      "text-red-200",
-                      "border border-red-400/30",
-                      "shadow-[inset_0_1px_0_rgba(251,113,133,0.25),inset_0_-1px_0_rgba(0,0,0,0.2)]",
+                      "bg-red-500 text-white shadow-[0_0_12px_rgba(244,63,94,0.4)]",
+                      "border border-red-400/50",
                     ].join(" ")
-                    : "bg-slate-800/80 text-slate-500 border border-slate-700/50"
+                    : [
+                      "bg-slate-900 text-slate-500 border border-slate-800",
+                      "group-hover:bg-slate-800 group-hover:text-slate-300 group-hover:border-slate-700",
+                    ].join(" ")
                 )}
               >
                 {count}
               </span>
+
+              {/* Edge Shine Effect for Active */}
+              {isActive && (
+                <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-red-300/40 to-transparent opacity-60 pointer-events-none" />
+              )}
             </button>
           );
         })}

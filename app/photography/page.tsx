@@ -8,7 +8,7 @@ import { LampContainer } from "@/components/ui/lamp";
 import { PhotographyClient } from "@/components/PhotographyClient";
 import { ShootingStars } from "@/components/ui/shooting-stars";
 import { StarsBackground } from "@/components/ui/stars-background";
-import { FaCamera, FaArrowRight } from "react-icons/fa";
+import { FaCamera, FaArrowRight, FaInstagram } from "react-icons/fa";
 
 export default function Page() {
   const picturesDir = path.join(process.cwd(), "public", "pictures");
@@ -76,7 +76,7 @@ export default function Page() {
         <div className="container mx-auto px-2 pb-10 -mt-14 relative z-10 text-center">
           <PhotographyClient photos={enrichedPhotos} categories={categories} />
 
-          <div className="mt-16 mb-5 max-w-4xl mx-auto">
+          <div className="mt-16 mb-5 max-w-4xl mx-auto px-2">
             <div className="relative group transition-all duration-500 hover:-translate-y-2">
               {/* Glow effect */}
               <div className="absolute -inset-1 bg-gradient-to-r from-red-600/20 to-rose-600/20 rounded-2xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
@@ -102,7 +102,7 @@ export default function Page() {
                   <div className="flex flex-col gap-4 w-full md:w-auto">
                     <a
                       href="mailto:bhavik.naik28@gmail.com"
-                      className="group/btn flex items-center justify-center gap-2 px-8 py-4 bg-red-800 hover:bg-red-700 text-white font-bold rounded-xl transition-all duration-300 shadow-xl shadow-red-900/30 transform active:scale-95"
+                      className="group/btn flex items-center justify-center gap-2 px-8 py-4 bg-red-700/75 hover:bg-red-700 text-white font-bold rounded-xl transition-all duration-300 shadow-xl shadow-red-900/30 transform active:scale-95"
                     >
                       <span>Inquire via Email</span>
                       <FaArrowRight className="w-4 h-4 transform group-hover/btn:translate-x-1 transition-transform" />
@@ -111,9 +111,10 @@ export default function Page() {
                       href="https://instagram.com/bhavikn28"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex items-center justify-center gap-2 px-8 py-4 bg-slate-900/60 hover:bg-slate-900/80 border border-slate-700 text-slate-200 font-bold rounded-xl transition-all duration-300 backdrop-blur-sm transform active:scale-95"
+                      className="group/insta flex items-center justify-center gap-2 px-8 py-4 bg-slate-900/60 hover:bg-slate-900/80 border border-slate-700 hover:border-red-500/50 text-slate-200 hover:text-white font-bold rounded-xl transition-all duration-300 backdrop-blur-sm transform active:scale-95 shadow-lg hover:shadow-red-900/20"
                     >
-                      Message me on Instagram
+                      <FaInstagram className="w-5 h-5 transition-transform duration-300 group-hover/insta:scale-110 group-hover/insta:text-rose-400" />
+                      <span>Message me on Instagram</span>
                     </a>
                   </div>
                 </div>
