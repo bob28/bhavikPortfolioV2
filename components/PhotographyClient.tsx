@@ -38,24 +38,36 @@ export const PhotographyClient = ({
   photos,
   categories,
 }: PhotographyClientProps) => {
-  const [activeCategory, setActiveCategory] = useState(categories[0] || "");
+  const [activeCategoryUI, setActiveCategoryUI] = useState(categories[0] || "");
+  const [activeCategoryData, setActiveCategoryData] = useState(categories[0] || "");
   const [isPending, startTransition] = useTransition();
 
   const handleCategoryChange = (category: string) => {
-    startTransition(() => {
-      setActiveCategory(category);
+    // Instantly update the UI so the pill active state physically switches
+    setActiveCategoryUI(category);
+    
+    // Give the browser exactly one frame to visually paint the new UI state 
+    // and begin the framer-motion physics before blocking the JS thread 
+    // with the massive gallery DOM diff computation.
+    requestAnimationFrame(() => {
+      requestAnimationFrame(() => {
+        startTransition(() => {
+          setActiveCategoryData(category);
+        });
+      });
     });
   };
 
   useEffect(() => {
-    if (categories.length > 0 && !categories.includes(activeCategory)) {
-      setActiveCategory(categories[0]);
+    if (categories.length > 0 && !categories.includes(activeCategoryUI)) {
+      setActiveCategoryUI(categories[0]);
+      setActiveCategoryData(categories[0]);
     }
-  }, [categories, activeCategory]);
+  }, [categories, activeCategoryUI]);
 
   const filteredPhotos = useMemo(() =>
-    photos.filter((photo) => photo.category === activeCategory),
-    [photos, activeCategory]
+    photos.filter((photo) => photo.category === activeCategoryData),
+    [photos, activeCategoryData]
   );
 
   const photoCounts = useMemo(() =>
@@ -71,29 +83,30 @@ export const PhotographyClient = ({
       {categories.length > 0 && (
         <CategoryFilter
           categories={categories}
-          activeCategory={activeCategory}
+          activeCategory={activeCategoryUI}
           setActiveCategory={handleCategoryChange}
           photoCounts={photoCounts}
         />
       )}
 
       <div
-        className={`transition-opacity duration-300 ${isPending ? "opacity-30" : "opacity-100"
+        className={`transition-opacity duration-300 ${isPending ? "opacity-30 pointer-events-none" : "opacity-100"
           }`}
       >
-        {categoryDescriptions[activeCategory] && (
+        {categoryDescriptions[activeCategoryData] && (
           <motion.p
-            key={activeCategory + "-desc"}
+            key={activeCategoryData + "-desc"}
             initial={{ opacity: 0, y: 5 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.35, ease: "easeOut" }}
             className="text-slate-400 text-sm leading-relaxed mb-8 -mt-4 text-center"
           >
-            {categoryDescriptions[activeCategory]}
+            {categoryDescriptions[activeCategoryData]}
           </motion.p>
         )}
 
-        <PhotographyGallery key={activeCategory} photos={filteredPhotos} />
+        {/* Removed key prop to prevent unmounting and destroying all cached images */}
+        <PhotographyGallery photos={filteredPhotos} />
       </div>
     </>
   );
