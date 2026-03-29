@@ -33,16 +33,30 @@ interface GalleryPhoto {
   title?: string;
   description?: string;
   category: string;
+  key?: string;
 }
+
+const calculateTargetRowHeight = (containerWidth: number) => {
+  if (containerWidth < 640) return 300;
+  if (containerWidth < 768) return 350;
+  if (containerWidth < 1024) return 375;
+  return 375;
+};
 
 export const PhotographyGallery = ({ photos }: PhotographyGalleryProps) => {
   const [index, setIndex] = useState(-1);
   const [visibleCount, setVisibleCount] = useState(BATCH_SIZE);
   const sentinelRef = useRef<HTMLDivElement | null>(null);
 
+  // Reset visible photos when the category (photos prop) changes
+  useEffect(() => {
+    setVisibleCount(BATCH_SIZE);
+  }, [photos]);
+
   // Prepare photos for PhotoAlbum and Lightbox
   const albumPhotos = useMemo<GalleryPhoto[]>(() => 
     photos.map((photo) => ({
+      key: photo.src,
       src: photo.src.startsWith("/") ? photo.src : `/${photo.src}`,
       width: photo.width,
       height: photo.height,
@@ -83,11 +97,12 @@ export const PhotographyGallery = ({ photos }: PhotographyGalleryProps) => {
 
   // Custom renderer for images to use next/image and add hover effects
   const renderImage = useCallback((
-    { alt, title, sizes, className, onClick }: RenderImageProps,
+    { alt, title, sizes, className, onClick, style }: RenderImageProps,
     { photo, width, height }: RenderImageContext<GalleryPhoto>
   ) => (
     <div
       style={{
+        ...style,
         width: "100%",
         position: "relative",
         aspectRatio: `${width} / ${height}`,
@@ -103,6 +118,7 @@ export const PhotographyGallery = ({ photos }: PhotographyGalleryProps) => {
         sizes={sizes}
         className="object-cover transition-transform duration-500 group-hover:scale-105"
         loading="lazy"
+        decoding="async"
       />
       {/* Overlay */}
       <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center pointer-events-none z-10">
@@ -118,12 +134,7 @@ export const PhotographyGallery = ({ photos }: PhotographyGalleryProps) => {
     <div className="w-full" style={{ animation: "galleryFadeUp 0.6s ease-out both" }}>
       <RowsPhotoAlbum
         photos={visiblePhotos}
-        targetRowHeight={(containerWidth) => {
-          if (containerWidth < 640) return 300;
-          if (containerWidth < 768) return 350;
-          if (containerWidth < 1024) return 375;
-          return 375;
-        }}
+        targetRowHeight={calculateTargetRowHeight}
         spacing={5}
         onClick={({ index }) => setIndex(index)}
         render={{ image: renderImage }}
