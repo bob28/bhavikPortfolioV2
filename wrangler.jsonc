@@ -15,6 +15,7 @@
 		{
 			// Self-reference service binding, the service name must match the worker name
 			// see https://opennext.js.org/cloudflare/caching
+			// match names with the name of the project
 			"binding": "WORKER_SELF_REFERENCE",
 			"service": "bhavik-portfolio"
 		}
