@@ -1,0 +1,637 @@
+{
+  "categories": [
+    "Automotive",
+    "Cityscapes",
+    "Engagement Collection",
+    "Keynotes",
+    "Landscapes",
+    "Life Events",
+    "Sports"
+  ],
+  "photos": [
+    {
+      "src": "pictures/Landscapes/PXL_20241112_103412553~2.jpg",
+      "category": "Landscapes",
+      "width": 3057,
+      "height": 4080
+    },
+    {
+      "src": "pictures/Life Events/DSC00506.webp",
+      "category": "Life Events",
+      "width": 3944,
+      "height": 7008
+    },
+    {
+      "src": "pictures/Cityscapes/PXL_20241113_094039370.MP.webp",
+      "category": "Cityscapes",
+      "width": 3022,
+      "height": 4033
+    },
+    {
+      "src": "pictures/Keynotes/A7C07503.webp",
+      "category": "Keynotes",
+      "width": 4672,
+      "height": 6224
+    },
+    {
+      "src": "pictures/Engagement Collection/A7C06836.webp",
+      "category": "Engagement Collection",
+      "width": 4672,
+      "height": 6224
+    },
+    {
+      "src": "pictures/Keynotes/A7C07886.webp",
+      "category": "Keynotes",
+      "width": 6224,
+      "height": 4672
+    },
+    {
+      "src": "pictures/Cityscapes/PXL_20251027_095926051.MP.webp",
+      "category": "Cityscapes",
+      "width": 3072,
+      "height": 4080
+    },
+    {
+      "src": "pictures/Keynotes/A7C07914.webp",
+      "category": "Keynotes",
+      "width": 4672,
+      "height": 6224
+    },
+    {
+      "src": "pictures/Automotive/24.webp",
+      "category": "Automotive",
+      "width": 2290,
+      "height": 1807
+    },
+    {
+      "src": "pictures/Sports/DSC06514.webp",
+      "category": "Sports",
+      "width": 3376,
+      "height": 6000
+    },
+    {
+      "src": "pictures/Sports/DSC07204.webp",
+      "category": "Sports",
+      "width": 6000,
+      "height": 3376
+    },
+    {
+      "src": "pictures/Engagement Collection/A7C06903.webp",
+      "category": "Engagement Collection",
+      "width": 4672,
+      "height": 6224
+    },
+    {
+      "src": "pictures/Life Events/DSC00740.webp",
+      "category": "Life Events",
+      "width": 7008,
+      "height": 3944
+    },
+    {
+      "src": "pictures/Engagement Collection/DSC01141.webp",
+      "category": "Engagement Collection",
+      "width": 3944,
+      "height": 7008
+    },
+    {
+      "src": "pictures/Sports/DSC09202.webp",
+      "category": "Sports",
+      "width": 3376,
+      "height": 6000
+    },
+    {
+      "src": "pictures/Sports/DSC09489.webp",
+      "category": "Sports",
+      "width": 6000,
+      "height": 3376
+    },
+    {
+      "src": "pictures/Automotive/11.webp",
+      "category": "Automotive",
+      "width": 1767,
+      "height": 2651
+    },
+    {
+      "src": "pictures/Engagement Collection/A7C07235.webp",
+      "category": "Engagement Collection",
+      "width": 6224,
+      "height": 4672
+    },
+    {
+      "src": "pictures/Engagement Collection/DSC01447.webp",
+      "category": "Engagement Collection",
+      "width": 3944,
+      "height": 7008
+    },
+    {
+      "src": "pictures/Cityscapes/A7C03034.webp",
+      "category": "Cityscapes",
+      "width": 4672,
+      "height": 6224
+    },
+    {
+      "src": "pictures/Engagement Collection/DSC01165.webp",
+      "category": "Engagement Collection",
+      "width": 3944,
+      "height": 7008
+    },
+    {
+      "src": "pictures/Cityscapes/PXL_20241108_042838678.MP.webp",
+      "category": "Cityscapes",
+      "width": 3072,
+      "height": 4080
+    },
+    {
+      "src": "pictures/Automotive/7.webp",
+      "category": "Automotive",
+      "width": 1688,
+      "height": 3000
+    },
+    {
+      "src": "pictures/Engagement Collection/A7C06970.webp",
+      "category": "Engagement Collection",
+      "width": 6224,
+      "height": 4672
+    },
+    {
+      "src": "pictures/Sports/DSC09257.webp",
+      "category": "Sports",
+      "width": 3376,
+      "height": 6000
+    },
+    {
+      "src": "pictures/Automotive/A7C07714.webp",
+      "category": "Automotive",
+      "width": 4672,
+      "height": 6224
+    },
+    {
+      "src": "pictures/Automotive/17.webp",
+      "category": "Automotive",
+      "width": 1971,
+      "height": 2338
+    },
+    {
+      "src": "pictures/Life Events/DSC01100.webp",
+      "category": "Life Events",
+      "width": 7008,
+      "height": 3944
+    },
+    {
+      "src": "pictures/Keynotes/A7C07845.webp",
+      "category": "Keynotes",
+      "width": 6224,
+      "height": 4672
+    },
+    {
+      "src": "pictures/Keynotes/A7C07862.webp",
+      "category": "Keynotes",
+      "width": 6224,
+      "height": 4672
+    },
+    {
+      "src": "pictures/Keynotes/A7C07492.webp",
+      "category": "Keynotes",
+      "width": 6224,
+      "height": 4672
+    },
+    {
+      "src": "pictures/Life Events/A7C02251.webp",
+      "category": "Life Events",
+      "width": 3944,
+      "height": 7008
+    },
+    {
+      "src": "pictures/Engagement Collection/DSC03169.webp",
+      "category": "Engagement Collection",
+      "width": 7008,
+      "height": 3944
+    },
+    {
+      "src": "pictures/Sports/DSC09325.webp",
+      "category": "Sports",
+      "width": 3376,
+      "height": 6000
+    },
+    {
+      "src": "pictures/Sports/DSC06700.webp",
+      "category": "Sports",
+      "width": 6000,
+      "height": 3376
+    },
+    {
+      "src": "pictures/Sports/DSC06817.webp",
+      "category": "Sports",
+      "width": 6000,
+      "height": 3376
+    },
+    {
+      "src": "pictures/Landscapes/A7C04330~2.webp",
+      "category": "Landscapes",
+      "width": 4672,
+      "height": 6224
+    },
+    {
+      "src": "pictures/Automotive/6.webp",
+      "category": "Automotive",
+      "width": 1938,
+      "height": 2907
+    },
+    {
+      "src": "pictures/Life Events/DSC01154.webp",
+      "category": "Life Events",
+      "width": 3944,
+      "height": 7008
+    },
+    {
+      "src": "pictures/Engagement Collection/DSC02913.webp",
+      "category": "Engagement Collection",
+      "width": 7008,
+      "height": 3944
+    },
+    {
+      "src": "pictures/Automotive/5.webp",
+      "category": "Automotive",
+      "width": 1939,
+      "height": 2908
+    },
+    {
+      "src": "pictures/Sports/DSC07347.webp",
+      "category": "Sports",
+      "width": 6000,
+      "height": 3376
+    },
+    {
+      "src": "pictures/Automotive/3.webp",
+      "category": "Automotive",
+      "width": 2440,
+      "height": 1657
+    },
+    {
+      "src": "pictures/Engagement Collection/A7C06471.webp",
+      "category": "Engagement Collection",
+      "width": 4672,
+      "height": 6224
+    },
+    {
+      "src": "pictures/Sports/DSC09392.webp",
+      "category": "Sports",
+      "width": 3376,
+      "height": 6000
+    },
+    {
+      "src": "pictures/Keynotes/A7C07516.webp",
+      "category": "Keynotes",
+      "width": 6224,
+      "height": 4672
+    },
+    {
+      "src": "pictures/Engagement Collection/DSC03120.webp",
+      "category": "Engagement Collection",
+      "width": 7008,
+      "height": 3944
+    },
+    {
+      "src": "pictures/Engagement Collection/A7C07090.webp",
+      "category": "Engagement Collection",
+      "width": 6224,
+      "height": 4672
+    },
+    {
+      "src": "pictures/Sports/DSC06439.webp",
+      "category": "Sports",
+      "width": 3376,
+      "height": 6000
+    },
+    {
+      "src": "pictures/Keynotes/A7C07511.webp",
+      "category": "Keynotes",
+      "width": 4672,
+      "height": 6224
+    },
+    {
+      "src": "pictures/Cityscapes/PXL_20241106_112802066.MP.webp",
+      "category": "Cityscapes",
+      "width": 2905,
+      "height": 3877
+    },
+    {
+      "src": "pictures/Engagement Collection/A7C06007.webp",
+      "category": "Engagement Collection",
+      "width": 6224,
+      "height": 4672
+    },
+    {
+      "src": "pictures/Sports/DSC09171.webp",
+      "category": "Sports",
+      "width": 3376,
+      "height": 6000
+    },
+    {
+      "src": "pictures/Engagement Collection/DSC03124.webp",
+      "category": "Engagement Collection",
+      "width": 3944,
+      "height": 7008
+    },
+    {
+      "src": "pictures/Sports/DSC06957.webp",
+      "category": "Sports",
+      "width": 6000,
+      "height": 3376
+    },
+    {
+      "src": "pictures/Keynotes/A7C07869.webp",
+      "category": "Keynotes",
+      "width": 4672,
+      "height": 6224
+    },
+    {
+      "src": "pictures/Sports/DSC09305.webp",
+      "category": "Sports",
+      "width": 3376,
+      "height": 6000
+    },
+    {
+      "src": "pictures/Automotive/A7C07643.webp",
+      "category": "Automotive",
+      "width": 4672,
+      "height": 6224
+    },
+    {
+      "src": "pictures/Landscapes/PXL_20241112_232657052.MP.webp",
+      "category": "Landscapes",
+      "width": 3015,
+      "height": 4024
+    },
+    {
+      "src": "pictures/Landscapes/DSC08660.webp",
+      "category": "Landscapes",
+      "width": 4672,
+      "height": 7008
+    },
+    {
+      "src": "pictures/Automotive/10.webp",
+      "category": "Automotive",
+      "width": 2782,
+      "height": 1855
+    },
+    {
+      "src": "pictures/Cityscapes/A7C04916.webp",
+      "category": "Cityscapes",
+      "width": 4672,
+      "height": 6224
+    },
+    {
+      "src": "pictures/Landscapes/DSC09629~2.webp",
+      "category": "Landscapes",
+      "width": 4672,
+      "height": 7008
+    },
+    {
+      "src": "pictures/Sports/DSC07323.webp",
+      "category": "Sports",
+      "width": 6000,
+      "height": 3376
+    },
+    {
+      "src": "pictures/Cityscapes/A7C03094.webp",
+      "category": "Cityscapes",
+      "width": 4672,
+      "height": 6224
+    },
+    {
+      "src": "pictures/Automotive/12.webp",
+      "category": "Automotive",
+      "width": 2658,
+      "height": 1772
+    },
+    {
+      "src": "pictures/Keynotes/A7C07532.webp",
+      "category": "Keynotes",
+      "width": 4672,
+      "height": 6224
+    },
+    {
+      "src": "pictures/Engagement Collection/DSC01273.webp",
+      "category": "Engagement Collection",
+      "width": 6791,
+      "height": 3821
+    },
+    {
+      "src": "pictures/Automotive/15.webp",
+      "category": "Automotive",
+      "width": 2168,
+      "height": 1626
+    },
+    {
+      "src": "pictures/Automotive/A7C07629.webp",
+      "category": "Automotive",
+      "width": 4672,
+      "height": 6224
+    },
+    {
+      "src": "pictures/Landscapes/DSC06972.webp",
+      "category": "Landscapes",
+      "width": 3235,
+      "height": 4312
+    },
+    {
+      "src": "pictures/Engagement Collection/DSC01909.webp",
+      "category": "Engagement Collection",
+      "width": 3944,
+      "height": 7008
+    },
+    {
+      "src": "pictures/Cityscapes/A7C03570.webp",
+      "category": "Cityscapes",
+      "width": 5877,
+      "height": 4439
+    },
+    {
+      "src": "pictures/Landscapes/A7C04307~2.webp",
+      "category": "Landscapes",
+      "width": 4672,
+      "height": 6224
+    },
+    {
+      "src": "pictures/Automotive/13.webp",
+      "category": "Automotive",
+      "width": 1678,
+      "height": 2034
+    },
+    {
+      "src": "pictures/Landscapes/DSC08732.webp",
+      "category": "Landscapes",
+      "width": 4608,
+      "height": 3072
+    },
+    {
+      "src": "pictures/Engagement Collection/DSC01317.webp",
+      "category": "Engagement Collection",
+      "width": 3944,
+      "height": 7008
+    },
+    {
+      "src": "pictures/Sports/DSC09217.webp",
+      "category": "Sports",
+      "width": 3376,
+      "height": 6000
+    },
+    {
+      "src": "pictures/Sports/DSC06541.webp",
+      "category": "Sports",
+      "width": 6000,
+      "height": 3376
+    },
+    {
+      "src": "pictures/Cityscapes/PXL_20251027_131126625.MP.webp",
+      "category": "Cityscapes",
+      "width": 3072,
+      "height": 4080
+    },
+    {
+      "src": "pictures/Landscapes/DSC09008.webp",
+      "category": "Landscapes",
+      "width": 3763,
+      "height": 5645
+    },
+    {
+      "src": "pictures/Automotive/A7C07664.webp",
+      "category": "Automotive",
+      "width": 4672,
+      "height": 6224
+    },
+    {
+      "src": "pictures/Sports/DSC09530.webp",
+      "category": "Sports",
+      "width": 3376,
+      "height": 6000
+    },
+    {
+      "src": "pictures/Life Events/A7C02113.webp",
+      "category": "Life Events",
+      "width": 3944,
+      "height": 7008
+    },
+    {
+      "src": "pictures/Keynotes/A7C07566.webp",
+      "category": "Keynotes",
+      "width": 4672,
+      "height": 6224
+    },
+    {
+      "src": "pictures/Life Events/A7C01846.webp",
+      "category": "Life Events",
+      "width": 3944,
+      "height": 7008
+    },
+    {
+      "src": "pictures/Automotive/4.webp",
+      "category": "Automotive",
+      "width": 1897,
+      "height": 2357
+    },
+    {
+      "src": "pictures/Engagement Collection/DSC02172.webp",
+      "category": "Engagement Collection",
+      "width": 3944,
+      "height": 7008
+    },
+    {
+      "src": "pictures/Cityscapes/PXL_20241115_034326040.MP.webp",
+      "category": "Cityscapes",
+      "width": 3057,
+      "height": 4080
+    },
+    {
+      "src": "pictures/Life Events/DSC01537.webp",
+      "category": "Life Events",
+      "width": 7008,
+      "height": 3944
+    },
+    {
+      "src": "pictures/Engagement Collection/A7C07376.webp",
+      "category": "Engagement Collection",
+      "width": 6224,
+      "height": 4672
+    },
+    {
+      "src": "pictures/Landscapes/DSC05773.webp",
+      "category": "Landscapes",
+      "width": 2771,
+      "height": 4939
+    },
+    {
+      "src": "pictures/Life Events/DSC00278.webp",
+      "category": "Life Events",
+      "width": 3944,
+      "height": 7008
+    },
+    {
+      "src": "pictures/Landscapes/DSC00323.webp",
+      "category": "Landscapes",
+      "width": 4082,
+      "height": 6123
+    },
+    {
+      "src": "pictures/Landscapes/PXL_20241108_084807551.MP.webp",
+      "category": "Landscapes",
+      "width": 3057,
+      "height": 4080
+    },
+    {
+      "src": "pictures/Life Events/DSC01134.webp",
+      "category": "Life Events",
+      "width": 3944,
+      "height": 7008
+    },
+    {
+      "src": "pictures/Engagement Collection/DSC01743.webp",
+      "category": "Engagement Collection",
+      "width": 3944,
+      "height": 7008
+    },
+    {
+      "src": "pictures/Engagement Collection/DSC03144.webp",
+      "category": "Engagement Collection",
+      "width": 3944,
+      "height": 7008
+    },
+    {
+      "src": "pictures/Life Events/A7C01902.webp",
+      "category": "Life Events",
+      "width": 3944,
+      "height": 7008
+    },
+    {
+      "src": "pictures/Keynotes/A7C07571.webp",
+      "category": "Keynotes",
+      "width": 4672,
+      "height": 6224
+    },
+    {
+      "src": "pictures/Engagement Collection/DSC02428.webp",
+      "category": "Engagement Collection",
+      "width": 3944,
+      "height": 7008
+    },
+    {
+      "src": "pictures/Landscapes/DSC00080.webp",
+      "category": "Landscapes",
+      "width": 3959,
+      "height": 5938
+    },
+    {
+      "src": "pictures/Engagement Collection/DSC03307.webp",
+      "category": "Engagement Collection",
+      "width": 3944,
+      "height": 7008
+    },
+    {
+      "src": "pictures/Cityscapes/A7C04776.webp",
+      "category": "Cityscapes",
+      "width": 6224,
+      "height": 4672
+    }
+  ]
+}

@@ -1,7 +1,4 @@
 import React from "react";
-import fs from "fs";
-import path from "path";
-import { imageSize } from "image-size";
 import Navbar from "@/components/navbar";
 import Footer from "@/components/footer";
 import { LampContainer } from "@/components/ui/lamp";
@@ -9,59 +6,10 @@ import { PhotographyClient } from "@/components/PhotographyClient";
 import { ShootingStars } from "@/components/ui/shooting-stars";
 import { StarsBackground } from "@/components/ui/stars-background";
 import { FaCamera, FaArrowRight, FaInstagram } from "react-icons/fa";
+import photosData from "@/data/photos.json";
 
 export default function Page() {
-  const picturesDir = path.join(process.cwd(), "public", "pictures");
-  let categories: string[] = [];
-  try {
-    categories = fs
-      .readdirSync(picturesDir)
-      .filter((file) => {
-        try {
-          return fs.statSync(path.join(picturesDir, file)).isDirectory();
-        } catch (err) {
-          return false;
-        }
-      });
-  } catch (error) { }
-
-  const enrichedPhotos: {
-    src: string;
-    category: string;
-    width: number;
-    height: number;
-  }[] = [];
-
-  categories.forEach((category) => {
-    const categoryPath = path.join(picturesDir, category);
-    const files = fs.readdirSync(categoryPath).filter(file => /\.(jpg|jpeg|png|webp|gif)$/i.test(file));
-    files.forEach((file) => {
-      const src = `pictures/${category}/${file}`;
-      try {
-        const fullPath = path.join(categoryPath, file);
-        const buffer = fs.readFileSync(fullPath);
-        const dimensions = imageSize(buffer);
-        enrichedPhotos.push({
-          src,
-          category,
-          width: dimensions.width || 800,
-          height: dimensions.height || 600,
-        });
-      } catch (error) {
-        enrichedPhotos.push({
-          src,
-          category,
-          width: 800,
-          height: 600,
-        });
-      }
-    });
-  });
-
-  for (let i = enrichedPhotos.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
-    [enrichedPhotos[i], enrichedPhotos[j]] = [enrichedPhotos[j], enrichedPhotos[i]];
-  }
+  const { categories, photos: enrichedPhotos } = photosData;
 
   return (
     <main className="bg-slate-900 relative min-h-screen">
