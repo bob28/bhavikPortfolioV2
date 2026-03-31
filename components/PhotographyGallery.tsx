@@ -16,6 +16,7 @@ const BATCH_SIZE = 12;
 
 interface Photo {
   src: string;
+  thumbnail: string;
   category: string;
   width: number;
   height: number;
@@ -28,6 +29,7 @@ interface PhotographyGalleryProps {
 // Extend the Photo type for react-photo-album
 interface GalleryPhoto {
   src: string;
+  thumbnail: string;
   width: number;
   height: number;
   title?: string;
@@ -57,10 +59,11 @@ export const PhotographyGallery = ({ photos }: PhotographyGalleryProps) => {
   }
 
   // Prepare photos for PhotoAlbum and Lightbox
-  const albumPhotos = useMemo<GalleryPhoto[]>(() => 
+  const albumPhotos = useMemo<GalleryPhoto[]>(() =>
     photos.map((photo) => ({
       key: photo.src,
       src: photo.src.startsWith("/") ? photo.src : `/${photo.src}`,
+      thumbnail: photo.thumbnail?.startsWith("/") ? photo.thumbnail : `/${photo.thumbnail}`,
       width: photo.width,
       height: photo.height,
       title: photo.category,
@@ -119,7 +122,8 @@ export const PhotographyGallery = ({ photos }: PhotographyGalleryProps) => {
       >
         <Image
           fill
-          src={photo.src}
+          // Switch to thumbnail for the grid view
+          src={photo.thumbnail}
           alt={alt || "Photography"}
           title={title}
           sizes={sizes}
@@ -128,6 +132,8 @@ export const PhotographyGallery = ({ photos }: PhotographyGalleryProps) => {
           loading={isPriority ? "eager" : "lazy"}
           decoding={isPriority ? "auto" : "async"}
           fetchPriority={isPriority ? "high" : "auto"}
+          // Keep this true to bypass the Cloudflare Worker CPU limit
+          unoptimized={true}
         />
       </div>
     );

@@ -7,6 +7,7 @@ import { PhotographyGallery } from "@/components/PhotographyGallery";
 
 interface Photo {
   src: string;
+  thumbnail: string;
   category: string;
   width: number;
   height: number;
