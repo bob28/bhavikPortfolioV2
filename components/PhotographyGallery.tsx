@@ -140,7 +140,7 @@ export const PhotographyGallery = ({ photos }: PhotographyGalleryProps) => {
   }, []);
 
   return (
-    <div className="w-full" style={{ animation: "galleryFadeUp 0.6s ease-out both" }}>
+    <div className="w-full">
       <RowsPhotoAlbum
         photos={visiblePhotos}
         targetRowHeight={calculateTargetRowHeight}

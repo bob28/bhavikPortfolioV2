@@ -39,3 +39,5 @@ next-env.d.ts
 .open-next
 /.wrangler
 /public/optimized
+data/photos.json
+/data

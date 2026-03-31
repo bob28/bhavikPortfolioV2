@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState, useEffect, useTransition, useMemo } from "react";
-import { motion } from "framer-motion";
+import { motion, useAnimation } from "framer-motion";
 import { CategoryFilter } from "@/components/CategoryFilter";
 import { PhotographyGallery } from "@/components/PhotographyGallery";
 
@@ -42,12 +42,17 @@ export const PhotographyClient = ({
   const [activeCategoryUI, setActiveCategoryUI] = useState(categories[0] || "");
   const [activeCategoryData, setActiveCategoryData] = useState(categories[0] || "");
   const [isPending, startTransition] = useTransition();
+  const controls = useAnimation();
 
   const handleCategoryChange = (category: string) => {
     // Instantly update the UI so the pill active state physically switches
     setActiveCategoryUI(category);
     
-    // Give the browser exactly one frame to visually paint the new UI state 
+    // Instantly "reset" the gallery animation state so it's ready to fade up again
+    // We do this BEFORE the transition blocks the JS thread
+    controls.set({ opacity: 0, y: 20 });
+    
+    // Give the browser exactly two frames to visually paint the "hidden" state
     // and begin the framer-motion physics before blocking the JS thread 
     // with the massive gallery DOM diff computation.
     requestAnimationFrame(() => {
@@ -58,6 +63,18 @@ export const PhotographyClient = ({
       });
     });
   };
+
+  // Trigger the entrance/fade-up animation whenever the category data actually updates
+  useEffect(() => {
+    controls.start({
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.6,
+        ease: [0.22, 1, 0.36, 1] // Out-expo
+      }
+    });
+  }, [activeCategoryData, controls]);
 
   useEffect(() => {
     if (categories.length > 0 && !categories.includes(activeCategoryUI)) {
@@ -90,9 +107,10 @@ export const PhotographyClient = ({
         />
       )}
 
-      <div
-        className={`transition-opacity duration-300 ${isPending ? "opacity-30 pointer-events-none" : "opacity-100"
-          }`}
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        animate={controls}
+        className={`w-full ${isPending ? "pointer-events-none" : ""}`}
       >
         {categoryDescriptions[activeCategoryData] && (
           <motion.p
@@ -108,7 +126,7 @@ export const PhotographyClient = ({
 
         {/* Removed key prop to prevent unmounting and destroying all cached images */}
         <PhotographyGallery photos={filteredPhotos} />
-      </div>
+      </motion.div>
     </>
   );
 };
