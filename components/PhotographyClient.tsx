@@ -35,6 +35,16 @@ const categoryDescriptions: Record<string, string> = {
     "Freezing high-stakes action and athletic intensity at the peak of the game.",
 };
 
+// Helper function to shuffle an array
+const shuffleArray = <T,>(array: T[]): T[] => {
+  const shuffled = [...array];
+  for (let i = shuffled.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+  }
+  return shuffled;
+};
+
 export const PhotographyClient = ({
   photos,
   categories,
@@ -43,6 +53,11 @@ export const PhotographyClient = ({
   const [activeCategoryData, setActiveCategoryData] = useState(categories[0] || "");
   const [isPending, startTransition] = useTransition();
   const controls = useAnimation();
+  const [isMounted, setIsMounted] = useState(false);
+
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
 
   const handleCategoryChange = (category: string) => {
     // Instantly update the UI so the pill active state physically switches
@@ -83,10 +98,12 @@ export const PhotographyClient = ({
     }
   }, [categories, activeCategoryUI]);
 
-  const filteredPhotos = useMemo(() =>
-    photos.filter((photo) => photo.category === activeCategoryData),
-    [photos, activeCategoryData]
-  );
+  const filteredPhotos = useMemo(() => {
+    const filtered = photos.filter((photo) => photo.category === activeCategoryData);
+    // If not mounted, return original order to match server-side rendering
+    // Once mounted, shuffle the array to fulfill the user's request for randomization
+    return isMounted ? shuffleArray(filtered) : filtered;
+  }, [photos, activeCategoryData, isMounted]);
 
   const photoCounts = useMemo(() =>
     categories.reduce((acc, cat) => {
@@ -130,3 +147,4 @@ export const PhotographyClient = ({
     </>
   );
 };
+
