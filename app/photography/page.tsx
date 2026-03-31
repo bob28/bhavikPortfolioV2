@@ -7,6 +7,7 @@ import { ShootingStars } from "@/components/ui/shooting-stars";
 import { StarsBackground } from "@/components/ui/stars-background";
 import { FaCamera, FaArrowRight, FaInstagram } from "react-icons/fa";
 import photosData from "@/data/photos.json";
+import { ScrollToTop } from "@/components/ui/scroll-to-top";
 
 export default function Page() {
   const { categories, photos: enrichedPhotos } = photosData;
@@ -86,6 +87,7 @@ export default function Page() {
         </div>
 
         <Footer />
+        <ScrollToTop />
       </div>
     </main>
   );
