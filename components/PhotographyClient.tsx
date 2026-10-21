@@ -19,19 +19,19 @@ interface PhotographyClientProps {
 }
 
 const categoryDescriptions: Record<string, string> = {
-  "Automotive":
+  Automotive:
     "Capturing the sleek lines, engineering precision, and raw power of high-performance vehicles in motion and at rest.",
-  "Cityscapes":
+  "Birthdays and Events":
+    "Documenting the joy and connection of personal milestones, from birthdays to creative studio gatherings.",
+  Cityscapes:
     "A curated look at urban architecture and the vibrant energy of the world's most iconic skylines.",
   "Engagement Collection":
     "Timeless storytelling focused on the intimate moments and genuine emotion shared between couples.",
-  "Keynotes":
+  Keynotes:
     "Professional coverage of corporate summits and seminars, highlighting the impact of speakers and the scale of the event.",
-  "Landscapes":
+  Landscapes:
     "Exploring the quiet majesty of the natural world through high-end, large-scale scenic photography.",
-  "Life Events":
-    "Documenting the joy and connection of personal milestones, from birthdays to creative studio gatherings.",
-  "Sports":
+  Sports:
     "Freezing high-stakes action and athletic intensity at the peak of the game.",
 };
 
@@ -50,7 +50,9 @@ export const PhotographyClient = ({
   categories,
 }: PhotographyClientProps) => {
   const [activeCategoryUI, setActiveCategoryUI] = useState(categories[0] || "");
-  const [activeCategoryData, setActiveCategoryData] = useState(categories[0] || "");
+  const [activeCategoryData, setActiveCategoryData] = useState(
+    categories[0] || "",
+  );
   const [isPending, startTransition] = useTransition();
   const controls = useAnimation();
   const [isMounted, setIsMounted] = useState(false);
@@ -62,13 +64,13 @@ export const PhotographyClient = ({
   const handleCategoryChange = (category: string) => {
     // Instantly update the UI so the pill active state physically switches
     setActiveCategoryUI(category);
-    
+
     // Instantly "reset" the gallery animation state so it's ready to fade up again
     // We do this BEFORE the transition blocks the JS thread
     controls.set({ opacity: 0, y: 20 });
-    
+
     // Give the browser exactly two frames to visually paint the "hidden" state
-    // and begin the framer-motion physics before blocking the JS thread 
+    // and begin the framer-motion physics before blocking the JS thread
     // with the massive gallery DOM diff computation.
     requestAnimationFrame(() => {
       requestAnimationFrame(() => {
@@ -86,8 +88,8 @@ export const PhotographyClient = ({
       y: 0,
       transition: {
         duration: 0.6,
-        ease: [0.22, 1, 0.36, 1] // Out-expo
-      }
+        ease: [0.22, 1, 0.36, 1], // Out-expo
+      },
     });
   }, [activeCategoryData, controls]);
 
@@ -99,18 +101,24 @@ export const PhotographyClient = ({
   }, [categories, activeCategoryUI]);
 
   const filteredPhotos = useMemo(() => {
-    const filtered = photos.filter((photo) => photo.category === activeCategoryData);
+    const filtered = photos.filter(
+      (photo) => photo.category === activeCategoryData,
+    );
     // If not mounted, return original order to match server-side rendering
     // Once mounted, shuffle the array to fulfill the user's request for randomization
     return isMounted ? shuffleArray(filtered) : filtered;
   }, [photos, activeCategoryData, isMounted]);
 
-  const photoCounts = useMemo(() =>
-    categories.reduce((acc, cat) => {
-      acc[cat] = photos.filter((p) => p.category === cat).length;
-      return acc;
-    }, {} as Record<string, number>),
-    [categories, photos]
+  const photoCounts = useMemo(
+    () =>
+      categories.reduce(
+        (acc, cat) => {
+          acc[cat] = photos.filter((p) => p.category === cat).length;
+          return acc;
+        },
+        {} as Record<string, number>,
+      ),
+    [categories, photos],
   );
 
   return (
@@ -147,4 +155,3 @@ export const PhotographyClient = ({
     </>
   );
 };
-
