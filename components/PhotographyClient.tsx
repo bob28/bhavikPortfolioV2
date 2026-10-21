@@ -22,7 +22,7 @@ const categoryDescriptions: Record<string, string> = {
   Automotive:
     "Capturing the sleek lines, engineering precision, and raw power of high-performance vehicles in motion and at rest.",
   "Birthdays and Events":
-    "Documenting the joy and connection of personal milestones, from birthdays to creative studio gatherings.",
+    "Documenting the joy and connection of personal milestones, from birthdays to life events.",
   Cityscapes:
     "A curated look at urban architecture and the vibrant energy of the world's most iconic skylines.",
   "Engagement Collection":
